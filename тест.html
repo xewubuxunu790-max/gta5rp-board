@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg-main: #020617;
-            --bg-card: #0f172a;
+            --bg-main: #020617; 
+            --bg-card: #0f172a; 
             --accent-blue: #3b82f6;
             --accent-red: #ef4444;
             --accent-yellow: #eab308;
@@ -31,11 +31,11 @@
             font-family: 'Roboto', sans-serif;
             line-height: 1.15;
             padding: 15px;
-            background-image:
+            background-image: 
                 radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 40%),
                 radial-gradient(circle at bottom left, rgba(239, 68, 68, 0.05), transparent 40%);
             margin: 0;
-            overflow: hidden;
+            overflow: hidden; 
         }
 
         .board-container {
@@ -47,7 +47,7 @@
 
         /* --- ПОДПИСЬ ЖЕЛЕЗНО В УГЛУ ЭКРАНА --- */
         .signature-badge {
-            position: fixed;
+            position: fixed; 
             top: 20px;
             right: 20px;
             font-family: 'Caveat', cursive;
@@ -63,7 +63,7 @@
             gap: 8px;
             transform: rotate(-2deg);
             transition: all 0.3s ease;
-            z-index: 9999;
+            z-index: 9999; 
             pointer-events: auto;
         }
         .signature-badge:hover {
@@ -132,7 +132,7 @@
             box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
         }
 
-        /* Специальная розовая вкладка */
+        /* Специальная розовая вкладка (Минздрав) */
         .tab-btn.tab-pink:hover {
             background-color: rgba(236, 72, 153, 0.15);
             border-color: var(--accent-pink);
@@ -143,6 +143,19 @@
             color: #fff;
             border-color: var(--accent-pink);
             box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+        }
+
+        /* Специальная зеленая вкладка (Армия) */
+        .tab-btn.tab-green:hover {
+            background-color: rgba(16, 185, 129, 0.15);
+            border-color: var(--accent-green);
+            color: var(--text-light);
+        }
+        .tab-btn.tab-green.active {
+            background-color: var(--accent-green);
+            color: #fff;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
         }
 
         .tab-content {
@@ -162,12 +175,11 @@
         /* 4 КОЛОНКИ: Плотно и ровно */
         .grid-4col {
             display: grid;
-            grid-template-columns: 1fr 1.35fr 1.35fr 1fr; /* Изменил пропорции для баланса */
+            grid-template-columns: 1fr 1.35fr 1.35fr 1fr;
             gap: 12px;
             align-items: start;
         }
 
-        /* Специальная сетка для Минздрава (подогнана под макет) */
         .grid-minzdrav {
             grid-template-columns: 0.9fr 1.25fr 1.6fr 1.25fr;
         }
@@ -181,22 +193,29 @@
         }
         .section-title h2 { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800; color: var(--text-light); text-transform: uppercase; }
         .section-title i { font-size: 13px; margin-right: 6px; }
-
+        
         .uk-title { border-color: var(--accent-red); } .uk-title i { color: var(--accent-red); }
         .koap-title { border-color: var(--accent-green); } .koap-title i { color: var(--accent-green); }
         .pk-title { border-color: var(--accent-purple); } .pk-title i { color: var(--accent-purple); }
         .ustav-title { border-color: var(--accent-yellow); } .ustav-title i { color: var(--accent-yellow); }
         .terms-title { border-color: var(--accent-blue); } .terms-title i { color: var(--accent-blue); }
         .info-title { border-color: #64748b; } .info-title i { color: #64748b; }
-
+        
         /* Розовые элементы для вкладки Минздрава */
         .pink-title { border-color: var(--accent-pink); } .pink-title i { color: var(--accent-pink); }
         .pink-table th { border-bottom: 2px solid var(--accent-pink); color: var(--accent-pink); }
         .rule-item.pink i { color: var(--accent-pink); }
         .col-article.pink { color: var(--accent-pink); }
-        .penalty-highlight.pink { color: var(--accent-pink); }
         .report-variant.pink { border-left: 3px solid var(--accent-pink); }
         .report-variant.pink h4 { color: var(--accent-pink); }
+
+        /* Зеленые элементы для вкладки Армии */
+        .green-title { border-color: var(--accent-green); } .green-title i { color: var(--accent-green); }
+        .green-table th { border-bottom: 2px solid var(--accent-green); color: var(--accent-green); }
+        .rule-item.green-theme i { color: var(--accent-green); }
+        .col-article.green-theme { color: var(--accent-green); }
+        .report-variant.green-theme { border-left: 3px solid var(--accent-green); }
+        .report-variant.green-theme h4 { color: var(--accent-green); }
 
         .card {
             background-color: var(--bg-card);
@@ -245,7 +264,7 @@
         }
         table { width: 100%; border-collapse: collapse; text-align: left; }
         thead { background-color: #1e293b; }
-
+        
         .uk-table th { border-bottom: 2px solid var(--accent-red); }
         .koap-table th { border-bottom: 2px solid var(--accent-green); }
         .pk-table th { border-bottom: 2px solid var(--accent-purple); }
@@ -274,16 +293,17 @@
         tr.group-header td i { margin-right: 5px; color: var(--text-light); }
         tr.group-header.yellow-header td { color: var(--accent-yellow); }
         tr.group-header.pink-header td { color: var(--accent-pink); }
+        tr.group-header.green-header td { color: var(--accent-green); }
 
-        .miranda-box {
-            background-color: #1e293b;
-            border-left: 2px solid var(--accent-purple);
-            padding: 4px 6px;
-            font-style: italic;
-            margin-top: 4px;
-            font-size: 8.5px;
-            color: #94a3b8;
-            border-radius: 2px;
+        .miranda-box { 
+            background-color: #1e293b; 
+            border-left: 2px solid var(--accent-purple); 
+            padding: 4px 6px; 
+            font-style: italic; 
+            margin-top: 4px; 
+            font-size: 8.5px; 
+            color: #94a3b8; 
+            border-radius: 2px; 
         }
         .exception-text { color: var(--accent-yellow); font-size: 8.5px; font-style: italic; display: block; margin-top: 1px; }
     </style>
@@ -301,8 +321,10 @@
     <div class="tabs-container">
         <!-- Вкладка Chilliad -->
         <button class="tab-btn" onclick="openTab(event, 'tab-chilliad')">GTA5RP | CHILLIAD | MP</button>
-        <!-- Новая Розовая вкладка -->
-        <button class="tab-btn tab-pink active" onclick="openTab(event, 'tab-minzdrav')">РО | ТВЕРСКОЙ | МИН.ЗДРАВ</button>
+        <!-- Розовая вкладка (Минздрав) -->
+        <button class="tab-btn tab-pink" onclick="openTab(event, 'tab-minzdrav')">РО | ТВЕРСКОЙ | МИН.ЗДРАВ</button>
+        <!-- Новая Зеленая вкладка (Армия) -->
+        <button class="tab-btn tab-green active" onclick="openTab(event, 'tab-army')">GTA5RP | CHILLIAD | ARMY</button>
         <!-- Заготовка под еще один сервер -->
         <button class="tab-btn" onclick="openTab(event, 'tab-other')">ДРУГОЙ ПРОЕКТ (СКОРО)</button>
     </div>
@@ -626,16 +648,8 @@
     </div>
 
     <!-- ==================== КОНТЕНТ ВКЛАДКИ: МИН.ЗДРАВ ==================== -->
-    <div id="tab-minzdrav" class="tab-content active">
-
-        <!-- ПОДПИСЬ ЕГОРА И ДАРИНЫ (ТОЛЬКО ДЛЯ ЭТОЙ ВКЛАДКИ) -->
-        <div class="signature-badge">
-            <i class="fa-solid fa-heart"></i>
-            Егор Марсов & Дарина Марсова
-        </div>
-
+    <div id="tab-minzdrav" class="tab-content">
         <div class="grid-4col grid-minzdrav">
-
             <!-- КОЛОНКА 1: ГРАФИК И НОРМА ИНВЕНТАРЯ -->
             <div class="col">
                 <div class="card">
@@ -797,6 +811,144 @@
         </div>
     </div>
 
+    <!-- ==================== КОНТЕНТ ВКЛАДКИ: CHILLIAD ARMY (ФУЛЛ ЗЕЛЕНЫЙ ИНТЕРФЕЙС) ==================== -->
+    <div id="tab-army" class="tab-content active">
+        
+        <!-- ПОДПИСЬ ЕГОРА И ДАРИНЫ (ТОЛЬКО ДЛЯ ЭТОЙ ВКЛАДКИ ИЛИ МИНЗДРАВА, КАК ТЫ ХОЧЕШЬ) -->
+        <div class="signature-badge" style="background: linear-gradient(135deg, #059669, #047857); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);">
+            <i class="fa-solid fa-shield-halved"></i>
+            Егор Марсов & Дарина Марсова
+        </div>
+
+        <div class="grid-4col">
+            
+            <!-- КОЛОНКА 1: БАЗА АРМИИ -->
+            <div class="col">
+                <div class="card">
+                    <div class="section-title green-title" style="border:none; margin: 0 0 6px 0; padding:0;">
+                        <i class="fa-solid fa-jet-fighter"></i>
+                        <h2>Армейские доклады</h2>
+                    </div>
+                    <div class="report-variant green-theme">
+                        <h4>Построение личного состава</h4>
+                        <p>«Сэр! [Звание] [Фамилия]. Армия на поверку построена. По списку: [число], в строю: [число]. Охрана форта штатная. ЧП не зафиксировано. Доклад окончен!»</p>
+                    </div>
+                    <div class="report-variant green-theme">
+                        <h4>Нападение / Оборона</h4>
+                        <p>«Сэр! [Звание] [Фамилия]. Зафиксировано проникновение на ФЗ. Код 3! Личный состав поднят по тревоге. Территория зачищается. Доклад окончен!»</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="section-title green-title" style="border:none; margin: 0 0 6px 0; padding:0;">
+                        <i class="fa-solid fa-shield-cat"></i>
+                        <h2>Охрана и КПП</h2>
+                    </div>
+                    <div class="rule-item green-theme">
+                        <i class="fa-solid fa-id-card"></i>
+                        <div><strong>Пропускной режим:</strong> Проверка документов на КПП. Гражданские без веской причины — за периметр.</div>
+                    </div>
+                    <div class="rule-item green-theme">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div><strong>Желтая зона:</strong> Предупреждение ➔ Приказ отойти ➔ Открытие огня на поражение.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- КОЛОНКА 2: УСТАВ АРМИИ -->
+            <div class="col">
+                <div class="section-title green-title">
+                    <i class="fa-solid fa-book"></i>
+                    <h2>Внутренний Устав Army</h2>
+                </div>
+                <div class="table-container green-table">
+                    <table>
+                        <thead><tr><th>Правило</th><th>Регламент службы</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-article green-theme">Субординация</td>
+                                <td class="col-desc">Беспрекословное подчинение старшему офицерскому составу. Обращение строго по званию.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article green-theme">Посты</td>
+                                <td class="col-desc">Запрещено оставлять свой пост без приказа командира части или заступления смены.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article green-theme">Склад ФЗ</td>
+                                <td class="col-desc">Контроль за разгрузкой и поставками материалов. Защита гос. имущества любой ценой.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article green-theme">Взыскания</td>
+                                <td class="col-desc">Выговоры за самовольство, сон на посту, нарушение дресс-кода или устава.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- КОЛОНКА 3: ОБОРОНА И КОДЫ -->
+            <div class="col">
+                <div class="section-title green-title">
+                    <i class="fa-solid fa-crosshairs"></i>
+                    <h2>Оборона и Коды ФЗ</h2>
+                </div>
+                <div class="table-container green-table">
+                    <table>
+                        <thead><tr><th>Код</th><th>Ситуация и Действия бойцов</th></tr></thead>
+                        <tbody>
+                            <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-bell"></i> Система тревог</td></tr>
+                            <tr>
+                                <td class="col-article green-theme">КОД 1</td>
+                                <td class="col-desc">Штатный режим. База под полным контролем, несение службы по плану.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article green-theme">КОД 2</td>
+                                <td class="col-desc">Повышенная готовность. Усиление патрулей, проверка периметра.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article green-theme">КОД 3</td>
+                                <td class="col-desc">Чрезвычайная ситуация / Нападение. Занять огневые позиции, отбить атаку.</td>
+                            </tr>
+                            <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-truck-field"></i> Поставки</td></tr>
+                            <tr>
+                                <td class="col-article green-theme">Матовозы</td>
+                                <td class="col-desc">Сопровождение колонн с материалами в государственные силовые структуры (LSPD, LSSD, FIB).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- КОЛОНКА 4: ВООРУЖЕНИЕ И СТАТЬИ -->
+            <div class="col">
+                <div class="section-title green-title">
+                    <i class="fa-solid fa-gun"></i>
+                    <h2>Вооружение и Снаряжение</h2>
+                </div>
+                <div class="table-container green-table">
+                    <table>
+                        <thead><tr><th>Категория</th><th>Правила выдачи и ношения</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-article green-theme">Табельное</td>
+                                <td class="col-desc">Выдается на оружейном складе по разрешению офицеров. Запрещено терять или продавать.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article green-theme">Бронежилеты</td>
+                                <td class="col-desc">Обязательное ношение бронежилета и каски при заступлении на дежурство или посты.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article green-theme">Спец. техника</td>
+                                <td class="col-desc">Транспорт армии (Barracks, Crusader, вертолеты) используется только для служебных задач.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <!-- ==================== КОНТЕНТ ВКЛАДКИ: ДРУГОЙ ПРОЕКТ ==================== -->
     <div id="tab-other" class="tab-content">
         <h2 style="color: var(--text-light); text-align: center; margin-top: 60px; font-size: 36px; font-family: 'Montserrat', sans-serif;">В РАЗРАБОТКЕ...</h2>
@@ -809,17 +961,17 @@
 <script>
     function openTab(evt, tabName) {
         var i, tabcontent, tablinks;
-
+        
         tabcontent = document.getElementsByClassName("tab-content");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].classList.remove("active");
         }
-
+        
         tablinks = document.getElementsByClassName("tab-btn");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].classList.remove("active");
         }
-
+        
         document.getElementById(tabName).classList.add("active");
         evt.currentTarget.classList.add("active");
     }
