@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ШПАРГАЛКИ BY BONN | GTA 5 RP</title>
+    <title>ШПАРГАЛКИ BY BONN | M-MENU STYLE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@400;500;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            /* Палитра HUD GTA 5 RP */
-            --bg-main: #090a0f;
-            --panel-bg: rgba(15, 23, 42, 0.65);
-            --panel-border: rgba(255, 255, 255, 0.08);
-            --accent-blue: #3b82f6;
-            --accent-red: #ef4444;
-            --accent-yellow: #eab308;
-            --accent-green: #10b981;
-            --accent-purple: #a855f7;
-            --accent-pink: #ec4899;
-            --text-main: #94a3b8;
-            --text-light: #f8fafc;
+            /* Строгая палитра M-Меню GTA 5 */
+            --bg-main: #050505;
+            --panel-bg: #111216;
+            --panel-header: #1a1c23;
+            --panel-border: #2a2d35;
+
+            --accent-blue: #2563eb;
+            --accent-red: #dc2626;
+            --accent-yellow: #ca8a04;
+            --accent-green: #059669;
+            --accent-purple: #9333ea;
+            --accent-pink: #db2777;
+
+            --text-main: #cbd5e1;
+            --text-light: #ffffff;
             --text-muted: #64748b;
         }
 
@@ -33,12 +36,6 @@
             font-family: 'Roboto', sans-serif;
             line-height: 1.2;
             padding: 20px;
-            /* Имитация размытого игрового фона */
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.05), transparent 25%),
-                radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.05), transparent 25%);
-            background-attachment: fixed;
             margin: 0;
             overflow-x: hidden;
         }
@@ -50,114 +47,92 @@
             margin: 0 auto;
         }
 
-        /* --- ПЛАВАЮЩИЕ ПОДПИСИ --- */
-        .signature-badge-pink, .signature-badge-blue {
+        /* --- СТРОГИЕ ПЛАВАЮЩИЕ ПОДПИСИ --- */
+        .signature-badge-pink, .signature-badge-blue, .signature-badge-purple {
             position: fixed;
-            top: 25px;
-            right: 25px;
+            top: 20px;
+            right: 20px;
             font-family: 'Caveat', cursive;
-            font-size: 24px;
+            font-size: 26px;
             color: #fff;
-            padding: 6px 22px;
-            border-radius: 4px;
+            padding: 8px 25px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            transform: rotate(-1.5deg);
-            transition: all 0.2s ease;
+            gap: 12px;
             z-index: 9999;
             pointer-events: auto;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+            transition: transform 0.1s;
         }
 
-        .signature-badge-pink {
-            background: rgba(236, 72, 153, 0.2);
-            border: 1px solid var(--accent-pink);
-            box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+        .signature-badge-pink { background-color: var(--accent-pink); border: 2px solid #fff; }
+        .signature-badge-blue { background-color: var(--accent-blue); border: 2px solid #fff; }
+        .signature-badge-purple { background-color: var(--accent-purple); border: 2px solid #fff; }
+
+        .signature-badge-pink:hover, .signature-badge-blue:hover, .signature-badge-purple:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px rgba(0,0,0,0.7);
         }
-        .signature-badge-pink:hover { transform: rotate(0deg) scale(1.02); box-shadow: 0 0 25px rgba(236, 72, 153, 0.5); }
 
-        .signature-badge-blue {
-            background: rgba(59, 130, 246, 0.2);
-            border: 1px solid var(--accent-blue);
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-        }
-        .signature-badge-blue:hover { transform: rotate(0deg) scale(1.02); box-shadow: 0 0 25px rgba(59, 130, 246, 0.5); }
-
-        .signature-badge-pink i, .signature-badge-blue i { animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { opacity: 0.7; } 50% { opacity: 1; } 100% { opacity: 0.7; } }
-
-        /* --- ШАПКА В СТИЛЕ ПЛАНШЕТА --- */
+        /* --- ШАПКА --- */
         header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             padding-bottom: 15px;
-            border-bottom: 1px solid var(--panel-border);
+            border-bottom: 2px solid var(--panel-border);
         }
         header h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
             color: var(--text-light);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-bottom: 5px;
-            text-shadow: 0 0 10px rgba(255,255,255,0.1);
         }
-        header h1 span { color: var(--accent-blue); text-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
-        header p { font-family: 'Montserrat', sans-serif; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;}
+        header h1 span { color: var(--accent-blue); background: #fff; padding: 0 8px; color: #000; margin-left: 5px;}
+        header p { font-family: 'Montserrat', sans-serif; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;}
 
-        /* --- ВКЛАДКИ (ТАБЫ) HUD --- */
+        /* --- ВКЛАДКИ M-MENU --- */
         .tabs-container {
             display: flex;
-            justify-content: center;
-            gap: 10px;
+            justify-content: flex-start;
+            gap: 0;
             margin-bottom: 20px;
+            border-bottom: 3px solid var(--panel-border);
         }
 
         .tab-btn {
-            background-color: rgba(15, 23, 42, 0.4);
-            color: var(--text-main);
-            border: 1px solid var(--panel-border);
-            padding: 10px 30px;
+            background-color: var(--panel-bg);
+            color: var(--text-muted);
+            border: none;
+            border-top: 3px solid transparent;
+            border-right: 1px solid var(--panel-border);
+            padding: 12px 30px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 700;
             cursor: pointer;
-            border-radius: 2px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.2s ease;
-            backdrop-filter: blur(5px);
+            transition: all 0s;
         }
 
-        .tab-btn:hover { background-color: rgba(255,255,255,0.05); color: var(--text-light); }
+        .tab-btn:hover { background-color: var(--panel-header); color: var(--text-light); }
 
         .tab-btn.active {
-            background-color: rgba(59, 130, 246, 0.15);
-            color: #fff;
-            border-color: var(--accent-blue);
-            box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.2);
+            background-color: var(--panel-header);
+            color: var(--text-light);
+            border-top-color: var(--accent-blue);
         }
-        .tab-btn.tab-pink.active {
-            background-color: rgba(236, 72, 153, 0.15);
-            border-color: var(--accent-pink);
-            box-shadow: inset 0 0 20px rgba(236, 72, 153, 0.2);
-        }
-        .tab-btn.tab-green.active {
-            background-color: rgba(16, 185, 129, 0.15);
-            border-color: var(--accent-green);
-            box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.2);
-        }
+        .tab-btn.tab-pink.active { border-top-color: var(--accent-pink); }
+        .tab-btn.tab-green.active { border-top-color: var(--accent-green); }
+        .tab-btn.tab-purple.active { border-top-color: var(--accent-purple); }
 
-        .tab-content { display: none; animation: hudFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .tab-content { display: none; }
         .tab-content.active { display: block; }
-
-        @keyframes hudFadeIn {
-            from { opacity: 0; transform: scale(0.99) translateY(10px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
 
         /* --- СЕТКА --- */
         .grid-4col {
@@ -172,122 +147,121 @@
         .card, .table-container {
             background-color: var(--panel-bg);
             border: 1px solid var(--panel-border);
-            border-radius: 4px;
-            padding: 12px;
             margin-bottom: 15px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .table-container { padding: 0; overflow: hidden; }
+        .card { padding: 15px; }
+        .table-container { padding: 0; }
 
         /* --- ЗАГОЛОВКИ СЕКЦИЙ --- */
         .section-title {
             display: flex;
             align-items: center;
-            margin: 0 0 10px 0;
-            padding-bottom: 6px;
+            background-color: var(--panel-header);
+            padding: 10px 15px;
             border-bottom: 1px solid var(--panel-border);
         }
+        .card .section-title { margin: -15px -15px 15px -15px; }
+
         .section-title h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 12px;
+            font-weight: 800;
             color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .section-title i { font-size: 12px; margin-right: 8px; }
+        .section-title i { font-size: 14px; margin-right: 10px; }
 
-        /* Цвета заголовков (Левая неоновая полоска) */
-        .uk-title { border-left: 3px solid var(--accent-red); padding-left: 8px;} .uk-title i { color: var(--accent-red); }
-        .koap-title { border-left: 3px solid var(--accent-green); padding-left: 8px;} .koap-title i { color: var(--accent-green); }
-        .pk-title { border-left: 3px solid var(--accent-purple); padding-left: 8px;} .pk-title i { color: var(--accent-purple); }
-        .ustav-title { border-left: 3px solid var(--accent-yellow); padding-left: 8px;} .ustav-title i { color: var(--accent-yellow); }
-        .terms-title { border-left: 3px solid var(--accent-blue); padding-left: 8px;} .terms-title i { color: var(--accent-blue); }
-        .info-title { border-left: 3px solid var(--text-muted); padding-left: 8px;} .info-title i { color: var(--text-muted); }
+        /* Цвета заголовков */
+        .uk-title h2, .uk-title i { color: var(--accent-red); }
+        .koap-title h2, .koap-title i { color: var(--accent-green); }
+        .pk-title h2, .pk-title i { color: var(--accent-purple); }
+        .ustav-title h2, .ustav-title i { color: var(--accent-yellow); }
+        .terms-title h2, .terms-title i { color: var(--accent-blue); }
 
-        .pink-title { border-left: 3px solid var(--accent-pink); padding-left: 8px;} .pink-title i { color: var(--accent-pink); }
-        .green-title { border-left: 3px solid var(--accent-green); padding-left: 8px;} .green-title i { color: var(--accent-green); }
+        .pink-title h2, .pink-title i { color: var(--accent-pink); }
+        .green-title h2, .green-title i { color: var(--accent-green); }
+        .purple-title h2, .purple-title i { color: var(--accent-purple); }
 
         /* --- БЛОКИ ТЕКСТА И ПРАВИЛ --- */
         .report-variant {
-            background-color: rgba(0,0,0,0.3);
-            border-left: 2px solid var(--accent-blue);
-            padding: 10px;
-            margin-bottom: 8px;
-            border-radius: 0 3px 3px 0;
+            background-color: #000;
+            border-left: 4px solid var(--accent-blue);
+            padding: 12px;
+            margin-bottom: 10px;
         }
         .report-variant.pink { border-left-color: var(--accent-pink); }
         .report-variant.green-theme { border-left-color: var(--accent-green); }
+        .report-variant.purple-theme { border-left-color: var(--accent-purple); }
 
-        .report-variant h4 { color: var(--text-light); margin-bottom: 4px; font-size: 10px; text-transform: uppercase; font-family: 'Montserrat', sans-serif;}
-        .report-variant.pink h4 { color: var(--accent-pink); }
-        .report-variant.green-theme h4 { color: var(--accent-green); }
-        .report-variant p { font-style: italic; font-size: 10px; color: var(--text-main); margin: 0; line-height: 1.4;}
+        .report-variant h4 { color: #fff; margin-bottom: 6px; font-size: 11px; text-transform: uppercase; font-family: 'Montserrat', sans-serif;}
+        .report-variant p { font-style: italic; font-size: 11px; color: var(--text-main); margin: 0; line-height: 1.4;}
 
         .rule-item {
             display: flex;
             align-items: center;
-            background-color: rgba(0,0,0,0.3);
-            padding: 10px;
-            border-radius: 3px;
+            background-color: #000;
+            padding: 12px;
             margin-bottom: 8px;
-            border: 1px solid transparent;
+            border-bottom: 1px solid var(--panel-border);
         }
-        .rule-item:hover { border-color: rgba(255,255,255,0.05); background-color: rgba(0,0,0,0.5); }
-        .rule-item i { font-size: 14px; width: 24px; text-align: center;}
+        .rule-item:hover { background-color: #1a1c23; }
+        .rule-item i { font-size: 16px; width: 30px; text-align: center;}
+
         .rule-item.green i, .rule-item.green-theme i { color: var(--accent-green); }
-        .rule-item.purple i { color: var(--accent-purple); }
+        .rule-item.purple i, .rule-item.purple-theme i { color: var(--accent-purple); }
         .rule-item.red i { color: var(--accent-red); }
         .rule-item.pink i { color: var(--accent-pink); }
 
-        .rule-item div { font-size: 10px; padding-left: 8px; line-height: 1.4;}
-        .rule-item div strong { color: var(--text-light); display: block; font-size: 11px; margin-bottom: 2px; font-family: 'Montserrat', sans-serif;}
+        .rule-item div { font-size: 11px; padding-left: 10px; line-height: 1.4;}
+        .rule-item div strong { color: var(--text-light); display: block; font-size: 12px; margin-bottom: 3px; font-family: 'Montserrat', sans-serif;}
 
         /* --- ТАБЛИЦЫ --- */
         table { width: 100%; border-collapse: collapse; text-align: left; }
-        thead { background-color: rgba(0,0,0,0.4); }
+        thead { background-color: #000; }
 
         th {
             font-family: 'Montserrat', sans-serif;
             color: var(--text-muted);
             text-transform: uppercase;
-            font-size: 9px;
-            padding: 8px 12px;
+            font-size: 10px;
+            padding: 10px 15px;
             letter-spacing: 1px;
-            border-bottom: 1px solid var(--panel-border);
+            border-bottom: 2px solid var(--panel-border);
         }
         td {
-            padding: 8px 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--panel-border);
             vertical-align: middle;
-            font-size: 10.5px;
-            line-height: 1.4;
+            font-size: 11px;
+            line-height: 1.5;
         }
-        tbody tr:hover { background-color: rgba(255,255,255,0.03); }
+        tbody tr:hover { background-color: #1a1c23; }
 
-        .col-article { font-weight: 500; color: var(--text-light); width: 18%; font-size: 10px; font-family: 'Montserrat', sans-serif;}
+        .col-article { font-weight: 700; color: var(--text-light); width: 18%; font-size: 11px; font-family: 'Montserrat', sans-serif;}
         .col-article.pink { color: var(--accent-pink); }
         .col-article.green-theme { color: var(--accent-green); }
+        .col-article.purple-theme { color: var(--accent-purple); }
 
         .col-desc { width: 64%; color: var(--text-main); }
-        .col-desc strong { color: var(--text-light); font-weight: 600;}
+        .col-desc strong { color: var(--text-light); font-weight: 700;}
 
-        .col-penalty { width: 18%; font-size: 9.5px; }
-        .penalty-highlight { color: var(--accent-red); }
-        .fine-text { color: var(--accent-green); }
-        .arrest-text { color: var(--accent-yellow); }
+        .col-penalty { width: 18%; font-size: 10px; }
+        .penalty-highlight { color: var(--accent-red); font-weight: 700;}
+        .fine-text { color: var(--accent-green); font-weight: 700;}
+        .arrest-text { color: var(--accent-yellow); font-weight: 700;}
 
         tr.group-header td {
-            font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; text-transform: uppercase; padding: 6px 12px;
-            background-color: rgba(0,0,0,0.6); letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; text-transform: uppercase; padding: 8px 15px;
+            background-color: #000; letter-spacing: 1.5px; border-bottom: 2px solid var(--panel-border);
         }
-        tr.group-header.yellow-header td { color: var(--accent-yellow); border-left: 2px solid var(--accent-yellow);}
-        tr.group-header.pink-header td { color: var(--accent-pink); border-left: 2px solid var(--accent-pink);}
-        tr.group-header.green-header td { color: var(--accent-green); border-left: 2px solid var(--accent-green);}
+        tr.group-header td i { margin-right: 8px; color: var(--text-light); }
+        tr.group-header.yellow-header td { color: var(--accent-yellow); }
+        tr.group-header.pink-header td { color: var(--accent-pink); }
+        tr.group-header.green-header td { color: var(--accent-green); }
+        tr.group-header.purple-header td { color: var(--accent-purple); border-left: 2px solid var(--accent-purple);}
 
-        .exception-text { color: var(--accent-yellow); font-size: 9px; font-style: italic; display: block; margin-top: 2px; opacity: 0.9;}
+        .exception-text { color: var(--accent-yellow); font-size: 10px; font-style: italic; display: block; margin-top: 4px; }
     </style>
 </head>
 <body>
@@ -296,15 +270,15 @@
 
     <header>
         <h1>ШПАРГАЛКИ <span>BY BONN</span></h1>
-        <p>Быстрый доступ к законам и регламентам</p>
+        <p>БАЗА ДАННЫХ // ЗАКОНЫ И РЕГЛАМЕНТЫ</p>
     </header>
 
     <!-- КНОПКИ ВКЛАДОК -->
     <div class="tabs-container">
-        <button class="tab-btn active" onclick="openTab(event, 'tab-chilliad')">GTA5RP | CHILLIAD | MP</button>
-        <button class="tab-btn tab-pink" onclick="openTab(event, 'tab-minzdrav')">РО | ТВЕРСКОЙ | МИН.ЗДРАВ</button>
-        <button class="tab-btn tab-green" onclick="openTab(event, 'tab-army')">GTA5RP | CHILLIAD | ARMY</button>
-        <button class="tab-btn" onclick="openTab(event, 'tab-other')">ДРУГОЙ ПРОЕКТ (СКОРО)</button>
+        <button class="tab-btn active" onclick="openTab(event, 'tab-chilliad')">GTA5RP | MP</button>
+        <button class="tab-btn tab-pink" onclick="openTab(event, 'tab-minzdrav')">РО | МИН.ЗДРАВ</button>
+        <button class="tab-btn tab-green" onclick="openTab(event, 'tab-army')">GTA5RP | ARMY</button>
+        <button class="tab-btn tab-purple" onclick="openTab(event, 'tab-court')">GTA5RP | СУД И ПРАВО</button>
     </div>
 
     <!-- ==================== ВКЛАДКА: CHILLIAD MP ==================== -->
@@ -352,7 +326,7 @@
                 </div>
 
                 <div class="table-container">
-                    <div class="section-title terms-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title terms-title">
                         <i class="fa-solid fa-graduation-cap"></i>
                         <h2>Термины</h2>
                     </div>
@@ -369,7 +343,7 @@
 
             <div class="col">
                 <div class="table-container">
-                    <div class="section-title ustav-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title ustav-title">
                         <i class="fa-solid fa-file-signature"></i>
                         <h2>Устав MP</h2>
                     </div>
@@ -397,7 +371,7 @@
                 </div>
 
                 <div class="table-container">
-                    <div class="section-title pk-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title pk-title">
                         <i class="fa-solid fa-book-open"></i>
                         <h2>Процессуальный (ПК)</h2>
                     </div>
@@ -445,7 +419,7 @@
 
             <div class="col">
                 <div class="table-container">
-                    <div class="section-title uk-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title uk-title">
                         <i class="fa-solid fa-gavel"></i>
                         <h2>Уголовный Кодекс (Часть 1)</h2>
                     </div>
@@ -524,7 +498,7 @@
 
             <div class="col">
                 <div class="table-container">
-                    <div class="section-title uk-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title uk-title">
                         <i class="fa-solid fa-gavel"></i>
                         <h2>Уголовный Кодекс (Часть 2)</h2>
                     </div>
@@ -579,7 +553,7 @@
                 </div>
 
                 <div class="table-container">
-                    <div class="section-title koap-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title koap-title">
                         <i class="fa-solid fa-file-invoice-dollar"></i>
                         <h2>КоАП</h2>
                     </div>
@@ -654,16 +628,16 @@
                         <i class="fa-solid fa-briefcase-medical"></i>
                         <h2>Норма инвентаря</h2>
                     </div>
-                    <div class="rule-item pink" style="align-items: flex-start;">
-                        <i class="fa-solid fa-pills" style="margin-top: 2px;"></i>
+                    <div class="rule-item pink">
+                        <i class="fa-solid fa-pills"></i>
                         <div><strong>Таблетки:</strong><br>Парацетамол - 48 шт. Уголь - 24 шт. Азитромицин - 24 шт.</div>
                     </div>
-                    <div class="rule-item pink" style="align-items: flex-start;">
-                        <i class="fa-solid fa-syringe" style="margin-top: 2px;"></i>
+                    <div class="rule-item pink">
+                        <i class="fa-solid fa-syringe"></i>
                         <div><strong>Ампулы:</strong><br>Эпинефрин - 20 шт. (СМП / Ст. составу можно 30 шт). Бинты - 40 шт. ИРП - не более 3 шт в час.</div>
                     </div>
-                    <div class="rule-item pink" style="align-items: flex-start;">
-                        <i class="fa-solid fa-heart-pulse" style="margin-top: 2px;"></i>
+                    <div class="rule-item pink">
+                        <i class="fa-solid fa-heart-pulse"></i>
                         <div><strong>Дефибриллятор:</strong><br>СТРОГО 1 шт. в собственности! За утерю — моментальный увал + ЧС. Отчет за 20 мин.</div>
                     </div>
                 </div>
@@ -671,7 +645,7 @@
 
             <div class="col">
                 <div class="table-container">
-                    <div class="section-title pink-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title pink-title">
                         <i class="fa-solid fa-sitemap"></i>
                         <h2>Отделы больницы</h2>
                     </div>
@@ -687,7 +661,7 @@
                 </div>
 
                 <div class="table-container">
-                    <div class="section-title pink-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title pink-title">
                         <i class="fa-solid fa-file-signature"></i>
                         <h2>Дисциплина и взыскания</h2>
                     </div>
@@ -704,9 +678,9 @@
 
             <div class="col">
                 <div class="table-container">
-                    <div class="section-title pink-title" style="border-color: var(--accent-red); margin: 12px 12px 0 12px;">
+                    <div class="section-title pink-title" style="border-bottom-color: var(--accent-red);">
                         <i class="fa-solid fa-ban" style="color: var(--accent-red);"></i>
-                        <h2 style="color: var(--text-light);">Красные флаги (строго запрещено)</h2>
+                        <h2 style="color: var(--accent-red);">Красные флаги (строго запрещено)</h2>
                     </div>
                     <table>
                         <thead><tr><th>Нарушение</th><th>Наказание и Описание</th></tr></thead>
@@ -725,7 +699,7 @@
 
             <div class="col">
                 <div class="table-container">
-                    <div class="section-title pink-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title pink-title">
                         <i class="fa-solid fa-map-location-dot"></i>
                         <h2>Локации процедур</h2>
                     </div>
@@ -741,7 +715,7 @@
                 </div>
 
                 <div class="table-container">
-                    <div class="section-title pink-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title pink-title">
                         <i class="fa-solid fa-user-doctor"></i>
                         <h2>Врачебная тайна и пациенты</h2>
                     </div>
@@ -755,7 +729,7 @@
                 </div>
 
                 <div class="table-container">
-                    <div class="section-title pink-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title pink-title">
                         <i class="fa-solid fa-money-bill-wave"></i>
                         <h2>Прейскурант услуг</h2>
                     </div>
@@ -796,7 +770,7 @@
 
             <div class="col">
                 <div class="table-container">
-                    <div class="section-title green-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title green-title">
                         <i class="fa-solid fa-sitemap"></i>
                         <h2>Иерархия и Отделы SANG</h2>
                     </div>
@@ -844,7 +818,7 @@
 
             <div class="col">
                 <div class="table-container">
-                    <div class="section-title green-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title green-title">
                         <i class="fa-solid fa-clock"></i>
                         <h2>Служба, График и Строй</h2>
                     </div>
@@ -880,7 +854,7 @@
 
             <div class="col">
                 <div class="table-container">
-                    <div class="section-title green-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title green-title">
                         <i class="fa-solid fa-shield-halved"></i>
                         <h2>Посты и Караул ФЗ</h2>
                     </div>
@@ -916,7 +890,7 @@
 
             <div class="col">
                 <div class="table-container">
-                    <div class="section-title green-title" style="margin: 12px 12px 0 12px;">
+                    <div class="section-title green-title">
                         <i class="fa-solid fa-ban"></i>
                         <h2>Запреты и Взыскания</h2>
                     </div>
@@ -957,10 +931,187 @@
         </div>
     </div>
 
-    <!-- ==================== ВКЛАДКА: ДРУГОЙ ПРОЕКТ ==================== -->
-    <div id="tab-other" class="tab-content">
-        <h2 style="color: var(--text-light); text-align: center; margin-top: 60px; font-size: 36px; font-family: 'Montserrat', sans-serif;">В РАЗРАБОТКЕ...</h2>
-        <p style="color: var(--text-muted); text-align: center; font-size: 18px;">Здесь будет шпаргалка для другого сервера.</p>
+    <!-- ==================== НОВАЯ ВКЛАДКА: СУД И ПРАВО ==================== -->
+    <div id="tab-court" class="tab-content">
+
+        <div class="signature-badge-purple">
+            <i class="fa-solid fa-scale-balanced"></i>
+            СУДЕБНЫЙ РЕГЛАМЕНТ
+        </div>
+
+        <div class="grid-4col">
+
+            <!-- КОЛОНКА 1: ИЕРАРХИЯ И РОЛИ -->
+            <div class="col">
+                <div class="table-container">
+                    <div class="section-title purple-title">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <h2>Иерархия Судов и Роли</h2>
+                    </div>
+                    <table>
+                        <thead><tr><th>Структура</th><th>Описание и Полномочия</th></tr></thead>
+                        <tbody>
+                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-scale-unbalanced"></i> Инстанции</td></tr>
+                            <tr>
+                                <td class="col-article purple-theme">Окружной суд</td>
+                                <td class="col-desc">Суд первой инстанции. Рассматривает гражданские и уголовные иски, нарушения УК, КоАП, ТК и внутренние уставы.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Апелляционный</td>
+                                <td class="col-desc">Суд второй инстанции. Рассматривает жалобы на решения Окружного суда. Может отменить или изменить вердикт.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Верховный суд</td>
+                                <td class="col-desc">Высшая инстанция. Дела против первых лиц (Губернатор, Министры), конституционные споры и апелляции на Апелляционный суд.</td>
+                            </tr>
+                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-users"></i> Участники процесса</td></tr>
+                            <tr>
+                                <td class="col-article purple-theme">Истец</td>
+                                <td class="col-desc">Лицо или организация, подавшие исковое заявление. Должны доказывать вину ответчика.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Ответчик</td>
+                                <td class="col-desc">Лицо, к которому предъявлен иск. Имеет право на адвоката и защиту.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Гос. Обвинитель</td>
+                                <td class="col-desc">Сотрудник Прокуратуры. Выступает от лица Штата в уголовных делах, запрашивает наказание.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Судебный пристав</td>
+                                <td class="col-desc">Обеспечивает безопасность в зале (обычно USSS). Выполняет прямые приказы судьи по удалению нарушителей.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- КОЛОНКА 2: ПРИНЦИПЫ И ТЕРМИНЫ -->
+            <div class="col">
+                <div class="table-container">
+                    <div class="section-title purple-title">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <h2>Базовые принципы и Термины</h2>
+                    </div>
+                    <table>
+                        <thead><tr><th>Понятие</th><th>Значение для Судьи</th></tr></thead>
+                        <tbody>
+                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-balance-scale-right"></i> Основы Правосудия</td></tr>
+                            <tr>
+                                <td class="col-article purple-theme">Презумпция невиновности</td>
+                                <td class="col-desc">Лицо считается невиновным, пока его вина не доказана судом. Любые <strong>неустранимые сомнения</strong> толкуются в пользу обвиняемого.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Бремя доказывания</td>
+                                <td class="col-desc">Обязанность доказывать факты лежит на том, кто их утверждает (на Истце/Прокуроре). Обвиняемый не обязан доказывать свою невиновность.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Недопустимые улики</td>
+                                <td class="col-desc">Любые доказательства, полученные с нарушением Конституции, ПК или прав гражданина (например, обыск без ордера). Суд обязан их отклонить.</td>
+                            </tr>
+                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-scroll"></i> Юридические термины</td></tr>
+                            <tr>
+                                <td class="col-article purple-theme">Судебный прецедент</td>
+                                <td class="col-desc">Вынесенное решение суда по конкретному делу, которое становится обязательным правилом для всех аналогичных дел в будущем.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Отвод Судьи</td>
+                                <td class="col-desc">Отстранение судьи от дела при наличии конфликта интересов (личная неприязнь, родственные связи с истцом/ответчиком).</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Хабеас Корпус</td>
+                                <td class="col-desc">Право задержанного обжаловать законность своего ареста. Суд должен срочно проверить основания для удержания под стражей.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- КОЛОНКА 3: ПОРЯДОК ЗАСЕДАНИЯ -->
+            <div class="col">
+                <div class="table-container">
+                    <div class="section-title purple-title">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <h2>Порядок Судебного Заседания</h2>
+                    </div>
+                    <table>
+                        <thead><tr><th>Стадия</th><th>Алгоритм действий Судьи</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-article purple-theme">1. Открытие</td>
+                                <td class="col-desc">Удар молотком: <em>«Встать, суд идет!»</em> Проверка явки истца, ответчика, свидетелей. Удаление из зала посторонних лиц, нарушающих тишину.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">2. Права и Отводы</td>
+                                <td class="col-desc">Судья разъясняет процессуальные права сторонам. Спрашивает, есть ли у сторон ходатайства или заявления об <strong>отводе судьи</strong>.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">3. Вступительное слово</td>
+                                <td class="col-desc">Слово предоставляется Истцу (или Прокурору) для оглашения сути иска. Затем слово предоставляется Ответчику (или Адвокату).</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">4. Судебное следствие</td>
+                                <td class="col-desc">Главная стадия: допрос истца, затем ответчика. Вызов и допрос свидетелей (перекрестный допрос). Изучение видеоматериалов и документов.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">5. Прения сторон</td>
+                                <td class="col-desc">Финальные речи. Истец и ответчик подводят итоги своих позиций. Новые доказательства на этой стадии приобщать <strong>запрещено</strong>.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">6. Последнее слово</td>
+                                <td class="col-desc">Предоставляется исключительно подсудимому/ответчику. Вопросы к нему на этой стадии не задаются.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">7. Вердикт</td>
+                                <td class="col-desc">Суд удаляется в совещательную комнату (или берет паузу), после чего оглашает приговор. Удар молотком: <em>«Судебное заседание закрыто»</em>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- КОЛОНКА 4: ОРДЕРА И УВАЖЕНИЕ К СУДУ -->
+            <div class="col">
+                <div class="table-container">
+                    <div class="section-title purple-title">
+                        <i class="fa-solid fa-file-contract"></i>
+                        <h2>Ордера и Правила поведения</h2>
+                    </div>
+                    <table>
+                        <thead><tr><th>Документ / Правило</th><th>Назначение и Применение</th></tr></thead>
+                        <tbody>
+                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-stamp"></i> Судебные Ордера (Warrants)</td></tr>
+                            <tr>
+                                <td class="col-article purple-theme">Ордер на Арест<br>(Arrest Warrant)</td>
+                                <td class="col-desc">Выдается судом (или Прокуратурой) на основании улик. Дает право задержать лицо вне зависимости от его текущего статуса.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Ордер на Обыск<br>(Search Warrant)</td>
+                                <td class="col-desc">Разрешение на принудительный обыск частного жилища, офиса или личного закрытого транспорта подозреваемого.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Снятие<br>неприкосновенности</td>
+                                <td class="col-desc">Для задержания высших лиц (Министры, Мэры) суд должен выпустить ордер, временно лишающий их статуса неприкосновенности.</td>
+                            </tr>
+                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-gavel"></i> Уважение к суду</td></tr>
+                            <tr>
+                                <td class="col-article purple-theme">Неуважение к суду</td>
+                                <td class="col-desc">Крики, перебивание судьи, отказ подчиняться приказам, оскорбления. Судья вправе выписать <strong>штраф</strong> или приказать приставам <strong>арестовать</strong> нарушителя.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Лжесвидетельство<br>(Perjury)</td>
+                                <td class="col-desc">Умышленная дача ложных показаний в суде. Является строгим уголовным преступлением. Инициируется задержание прямо в зале.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-article purple-theme">Нейтралитет Судьи</td>
+                                <td class="col-desc">Судье <strong>строго запрещено</strong> повышать голос, оскорблять участников или демонстрировать предвзятость. Только холодный рассудок.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </div>
