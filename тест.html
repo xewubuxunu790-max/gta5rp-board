@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ШПАРГАЛКИ BY BONN | MODERN UI</title>
+    <title>ШПАРГАЛКИ СЕМЬИ BONN | MODERN UI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -117,7 +117,7 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            border-radius: 50px; /* КРУГЛОЕ МЕНЮ */
+            border-radius: 50px;
             max-width: 600px;
             box-shadow: var(--glass-shadow);
         }
@@ -199,7 +199,7 @@
         .card, .table-container {
             background-color: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 20px; /* КРУГЛЫЕ УГЛЫ ДЛЯ ВСЕХ ПАНЕЛЕЙ */
+            border-radius: 20px;
             margin-bottom: 20px;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -247,7 +247,7 @@
             border-left: 4px solid var(--accent-blue);
             padding: 15px;
             margin-bottom: 12px;
-            border-radius: 0 12px 12px 0; /* Мягкие края блоков */
+            border-radius: 0 12px 12px 0;
         }
         .report-variant.pink { border-left-color: var(--accent-pink); }
         .report-variant.green-theme { border-left-color: var(--accent-green); }
@@ -298,7 +298,7 @@
             line-height: 1.5;
         }
         tbody tr:hover { background-color: rgba(255,255,255,0.03); }
-        tbody tr:last-child td { border-bottom: none; } /* Убираем нижнюю линию у последнего ряда */
+        tbody tr:last-child td { border-bottom: none; }
 
         .col-article { font-weight: 700; color: var(--text-light); width: 18%; font-size: 11px; font-family: 'Montserrat', sans-serif;}
         .col-article.pink { color: var(--accent-pink); }
@@ -333,23 +333,21 @@
             border: 1px solid var(--glass-border);
             padding: 40px;
             margin-bottom: 25px;
-            border-radius: 24px; /* МАКСИМАЛЬНЫЕ СКРУГЛЕНИЯ */
+            border-radius: 24px;
             backdrop-filter: blur(15px);
             box-shadow: var(--glass-shadow);
         }
         .simple-card h2 { color: #fff; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; border-left: 4px solid var(--accent-blue); padding-left: 15px;}
         .simple-card p { font-size: 15px; line-height: 1.7; margin-bottom: 15px; color: var(--text-main); }
 
-        /* =========================================================
-           ОБНОВЛЕННЫЙ БЛОК ОТЗЫВА - КРУГЛЫЙ СОВРЕМЕННЫЙ ДИЗАЙН
-           ========================================================= */
+        /* БЛОК ОТЗЫВА - КРУГЛЫЙ СОВРЕМЕННЫЙ ДИЗАЙН */
         .review-layout {
             display: flex;
             align-items: stretch;
             background: rgba(10, 15, 25, 0.7);
             border: 1px solid var(--glass-border);
             margin-bottom: 25px;
-            border-radius: 24px; /* КРУГЛЫЕ КРАЯ ОТЗЫВА */
+            border-radius: 24px;
             box-shadow: var(--glass-shadow);
             overflow: hidden;
             min-height: 500px;
@@ -362,12 +360,11 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            background: transparent; /* НИКАКИХ КВАДРАТОВ И ФОНОВ */
+            background: transparent;
             border: none;
             position: relative;
         }
 
-        /* Легкое фиолетовое свечение позади девушки (опционально, для красоты) */
         .review-image-wrapper::before {
             content: '';
             position: absolute;
@@ -390,7 +387,7 @@
             filter: drop-shadow(8px 0px 20px rgba(0,0,0,0.5));
             color: transparent;
             position: relative;
-            z-index: 2; /* Картинка поверх свечения */
+            z-index: 2;
         }
 
         .review-content {
@@ -404,7 +401,7 @@
         }
 
         .review-content h4 { color: #fff; font-family: 'Montserrat', sans-serif; font-size: 26px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1.5px;}
-        .review-content span { color: var(--accent-yellow); font-size: 14px; margin-bottom: 25px; display: block;}
+        .review-content span { color: var(--accent-yellow); font-size: 18px; margin-bottom: 25px; display: block;}
         .review-content p { font-style: italic; margin-bottom: 20px; font-size: 16px; line-height: 1.8; color: var(--text-light);}
         .review-content p:last-child { margin-bottom: 0; }
     </style>
@@ -417,6 +414,7 @@
         <h1>САЙТ СЕМЬИ BONN <span>BY BONN</span></h1>
         <p>БАЗА ДАННЫХ // ЗАКОНЫ И РЕГЛАМЕНТЫ</p>
     </header>
+
     <!-- ГЛАВНОЕ МЕНЮ САЙТА (ПЛАВАЮЩЕЕ СКРУГЛЕННОЕ) -->
     <nav class="main-nav">
         <button class="main-btn active" onclick="openMainTab(event, 'page-cheatsheets')">Шпаргалки</button>
@@ -1284,18 +1282,18 @@
     <div id="page-reviews" class="main-content">
         <div class="simple-content-box">
 
-            <!-- ИДЕАЛЬНЫЙ СКРУГЛЕННЫЙ БЛОК ОТЗЫВА БЕЗ КВАДРАТОВ -->
+            <!-- ИДЕАЛЬНЫЙ СКРУГЛЕННЫЙ БЛОК ОТЗЫВА -->
             <div class="review-layout">
                 <div class="review-image-wrapper">
-                    <!-- Замени 'image_5351db.png' на свою картинку БЕЗ ФОНА -->
-                    <img src="bonya.png" alt="" class="review-avatar-full">
+                    <!-- Замени 'bonya.png' на свою картинку БЕЗ ФОНА -->
+                    <img src="bonya.png" alt="Лидер семьи" class="review-avatar-full">
                 </div>
                 <div class="review-content">
-                    <h4>Bonya Balabonya</h4>
+                    <h4>Bonya Balabonya | Лидер семьи</h4>
                     <span>★ ★ ★ ★ ★</span>
-                    <p>«Семья Bonn — это не просто очередная фама на сервере, это по-настоящему сплоченный коллектив и большая игровая семья. Я состою здесь уже долгое время и могу с уверенностью сказать: это одно из самых адекватных комьюнити на всем проекте.»</p>
-                    <p>«Здесь абсолютно нет места токсичности, лишним конфликтам или душному фарму ради фарма. Руководство всегда на связи, всегда идет навстречу и с огромным терпением помогает освоиться новичкам, объясняя все нюансы механик и правил. Мы нашли идеальный баланс: мы стабильно и активно участвуем во всех серверных мероприятиях, забираем свое, но при этом никогда не забываем про качественный и атмосферный РП-процесс, который приносит настоящие эмоции от игры.»</p>
-                    <p>«Ребята всегда готовы прийти на помощь, вытащить из передряги или просто душевно пообщаться вечером в дискорде. Если вы ищете место, где ценят абсолютно каждого участника, где ваш голос имеет вес, и где по-настоящему приятно проводить время, развивая своего персонажа в отличной компании — вам однозначно к нам!»</p>
+                    <p>«Когда я только создавала нашу семью, моей главной целью было собрать уютный, адекватный и дружный коллектив, где каждый будет чувствовать себя как дома. И сейчас, глядя на наших ребят, я с огромной гордостью могу сказать — у нас всё получилось!»</p>
+                    <p>«Я безумно ценю каждого человека в нашем составе. Мы вместе растем, развиваемся, забираем серверные МП и показываем действительно красивый РП-отыгрыш. Для меня, как для лидера, критически важно, чтобы внутри фамы не было места токсичности, а любой новичок всегда мог рассчитывать на мою помощь и поддержку.»</p>
+                    <p>«Этот сайт и наша база знаний — это наш общий вклад в то, чтобы сделать игру максимально комфортной и приятной. Двери нашей семьи всегда открыты для целеустремленных, активных и позитивных ребят. Присоединяйтесь к Bonn, будем писать историю сервера вместе! 🩷»</p>
                 </div>
             </div>
 
