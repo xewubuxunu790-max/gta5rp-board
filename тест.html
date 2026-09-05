@@ -3,39 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ШПАРГАЛКИ BY BONN | M-MENU STYLE</title>
+    <title>ШПАРГАЛКИ BY BONN | MODERN UI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            /* Строгая палитра M-Меню GTA 5 */
-            --bg-main: #050505;
-            --panel-bg: #111216;
-            --panel-header: #1a1c23;
-            --panel-border: #2a2d35;
+            /* Современная палитра планшета */
+            --bg-color: #0b0f19;
+            --glass-bg: rgba(20, 25, 35, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
-            --accent-blue: #2563eb;
-            --accent-red: #dc2626;
-            --accent-yellow: #ca8a04;
-            --accent-green: #059669;
-            --accent-purple: #9333ea;
-            --accent-pink: #db2777;
+            --accent-blue: #3b82f6;
+            --accent-blue-glow: rgba(59, 130, 246, 0.4);
 
-            --text-main: #cbd5e1;
-            --text-light: #ffffff;
-            --text-muted: #64748b;
+            --accent-pink: #ec4899;
+            --accent-pink-glow: rgba(236, 72, 153, 0.4);
+
+            --accent-green: #10b981;
+            --accent-green-glow: rgba(16, 185, 129, 0.4);
+
+            --accent-purple: #a855f7;
+            --accent-purple-glow: rgba(168, 85, 247, 0.4);
+
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+
+            --text-main: #94a3b8;
+            --text-light: #f8fafc;
+            --text-muted: #475569;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: var(--bg-main);
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.07) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.07) 0%, transparent 40%);
+            background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Roboto', sans-serif;
-            line-height: 1.2;
-            padding: 20px;
+            line-height: 1.3;
+            padding: 30px 20px;
             margin: 0;
             overflow-x: hidden;
         }
@@ -43,136 +55,182 @@
         .board-container {
             width: 100%;
             min-width: 1300px;
-            max-width: 1920px;
+            max-width: 1800px;
             margin: 0 auto;
         }
 
-        /* --- СТРОГИЕ ПЛАВАЮЩИЕ ПОДПИСИ --- */
-        .signature-badge-pink, .signature-badge-blue, .signature-badge-purple {
+        /* --- СКРУГЛЕННЫЕ ПЛАВАЮЩИЕ ПОДПИСИ --- */
+        .signature-badge {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 25px;
+            right: 25px;
             font-family: 'Caveat', cursive;
-            font-size: 26px;
+            font-size: 24px;
             color: #fff;
             padding: 8px 25px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             z-index: 9999;
-            pointer-events: auto;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
-            transition: transform 0.1s;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
         }
 
-        .signature-badge-pink { background-color: var(--accent-pink); border: 2px solid #fff; }
-        .signature-badge-blue { background-color: var(--accent-blue); border: 2px solid #fff; }
-        .signature-badge-purple { background-color: var(--accent-purple); border: 2px solid #fff; }
+        .signature-badge-pink { background: linear-gradient(135deg, rgba(236,72,153,0.8), rgba(190,24,93,0.8)); border: 1px solid rgba(236,72,153,0.5); }
+        .signature-badge-blue { background: linear-gradient(135deg, rgba(59,130,246,0.8), rgba(29,78,216,0.8)); border: 1px solid rgba(59,130,246,0.5); }
+        .signature-badge-purple { background: linear-gradient(135deg, rgba(168,85,247,0.8), rgba(126,34,206,0.8)); border: 1px solid rgba(168,85,247,0.5); }
 
-        .signature-badge-pink:hover, .signature-badge-blue:hover, .signature-badge-purple:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 7px 7px 0px rgba(0,0,0,0.7);
-        }
+        .signature-badge:hover { transform: translateY(-3px) scale(1.02); }
 
         /* --- ШАПКА --- */
         header {
             text-align: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--panel-border);
+            margin-bottom: 30px;
         }
         header h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 32px;
+            font-size: 38px;
             font-weight: 800;
             color: var(--text-light);
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: 5px;
         }
-        header h1 span { color: var(--accent-blue); background: #fff; padding: 0 8px; color: #000; margin-left: 5px;}
-        header p { font-family: 'Montserrat', sans-serif; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;}
+        header h1 span {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p { font-family: 'Montserrat', sans-serif; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 3px;}
 
-        /* --- ВКЛАДКИ M-MENU --- */
+        /* --- ГЛАВНОЕ МЕНЮ САЙТА (ПЛАВАЮЩИЙ DOCK) --- */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 0 auto 30px auto;
+            padding: 10px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px; /* КРУГЛОЕ МЕНЮ */
+            max-width: 600px;
+            box-shadow: var(--glass-shadow);
+        }
+        .main-btn {
+            background-color: transparent;
+            color: var(--text-main);
+            border: none;
+            padding: 12px 35px;
+            border-radius: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        .main-btn:hover { color: var(--text-light); background: rgba(255,255,255,0.05); }
+        .main-btn.active { background-color: #fff; color: #000; box-shadow: 0 4px 15px rgba(255,255,255,0.2);}
+
+        .main-content { display: none; }
+        .main-content.active { display: block; animation: smoothFade 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        @keyframes smoothFade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- ВКЛАДКИ ШПАРГАЛОК (КРУГЛЫЕ КНОПКИ) --- */
         .tabs-container {
             display: flex;
             justify-content: flex-start;
-            gap: 0;
-            margin-bottom: 20px;
-            border-bottom: 3px solid var(--panel-border);
+            gap: 12px;
+            margin-bottom: 25px;
         }
 
         .tab-btn {
-            background-color: var(--panel-bg);
-            color: var(--text-muted);
-            border: none;
-            border-top: 3px solid transparent;
-            border-right: 1px solid var(--panel-border);
-            padding: 12px 30px;
+            background-color: var(--glass-bg);
+            color: var(--text-main);
+            border: 1px solid var(--glass-border);
+            padding: 12px 25px;
+            border-radius: 30px;
             font-family: 'Montserrat', sans-serif;
             font-size: 12px;
             font-weight: 700;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0s;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        .tab-btn:hover { background-color: var(--panel-header); color: var(--text-light); }
+        .tab-btn:hover { background-color: rgba(255,255,255,0.08); color: var(--text-light); transform: translateY(-2px);}
 
         .tab-btn.active {
-            background-color: var(--panel-header);
-            color: var(--text-light);
-            border-top-color: var(--accent-blue);
+            background-color: var(--accent-blue);
+            color: #fff;
+            border-color: var(--accent-blue);
+            box-shadow: 0 5px 15px var(--accent-blue-glow);
         }
-        .tab-btn.tab-pink.active { border-top-color: var(--accent-pink); }
-        .tab-btn.tab-green.active { border-top-color: var(--accent-green); }
-        .tab-btn.tab-purple.active { border-top-color: var(--accent-purple); }
+        .tab-btn.tab-pink.active { background-color: var(--accent-pink); border-color: var(--accent-pink); box-shadow: 0 5px 15px var(--accent-pink-glow); }
+        .tab-btn.tab-green.active { background-color: var(--accent-green); border-color: var(--accent-green); box-shadow: 0 5px 15px var(--accent-green-glow); }
+        .tab-btn.tab-purple.active { background-color: var(--accent-purple); border-color: var(--accent-purple); box-shadow: 0 5px 15px var(--accent-purple-glow); }
 
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
+        .sub-tab-content { display: none; animation: smoothFade 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .sub-tab-content.active { display: block; }
 
         /* --- СЕТКА --- */
         .grid-4col {
             display: grid;
             grid-template-columns: 1fr 1.35fr 1.35fr 1fr;
-            gap: 15px;
+            gap: 20px;
             align-items: start;
         }
         .grid-minzdrav { grid-template-columns: 0.9fr 1.25fr 1.6fr 1.25fr; }
 
-        /* --- ПАНЕЛИ / КАРТОЧКИ --- */
+        /* --- ПАНЕЛИ / КАРТОЧКИ С ЭФФЕКТОМ СТЕКЛА --- */
         .card, .table-container {
-            background-color: var(--panel-bg);
-            border: 1px solid var(--panel-border);
-            margin-bottom: 15px;
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px; /* КРУГЛЫЕ УГЛЫ ДЛЯ ВСЕХ ПАНЕЛЕЙ */
+            margin-bottom: 20px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: var(--glass-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .card { padding: 15px; }
+        .card:hover, .table-container:hover { border-color: rgba(255,255,255,0.15); }
+        .card { padding: 20px; }
         .table-container { padding: 0; }
 
         /* --- ЗАГОЛОВКИ СЕКЦИЙ --- */
         .section-title {
             display: flex;
             align-items: center;
-            background-color: var(--panel-header);
-            padding: 10px 15px;
-            border-bottom: 1px solid var(--panel-border);
+            background-color: rgba(0,0,0,0.2);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--glass-border);
         }
-        .card .section-title { margin: -15px -15px 15px -15px; }
+        .card .section-title { margin: -20px -20px 20px -20px; }
 
         .section-title h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 800;
             color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .section-title i { font-size: 14px; margin-right: 10px; }
+        .section-title i { font-size: 15px; margin-right: 12px; }
 
-        /* Цвета заголовков */
         .uk-title h2, .uk-title i { color: var(--accent-red); }
         .koap-title h2, .koap-title i { color: var(--accent-green); }
         .pk-title h2, .pk-title i { color: var(--accent-purple); }
@@ -185,58 +243,62 @@
 
         /* --- БЛОКИ ТЕКСТА И ПРАВИЛ --- */
         .report-variant {
-            background-color: #000;
+            background-color: rgba(0,0,0,0.2);
             border-left: 4px solid var(--accent-blue);
-            padding: 12px;
-            margin-bottom: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 0 12px 12px 0; /* Мягкие края блоков */
         }
         .report-variant.pink { border-left-color: var(--accent-pink); }
         .report-variant.green-theme { border-left-color: var(--accent-green); }
         .report-variant.purple-theme { border-left-color: var(--accent-purple); }
 
         .report-variant h4 { color: #fff; margin-bottom: 6px; font-size: 11px; text-transform: uppercase; font-family: 'Montserrat', sans-serif;}
-        .report-variant p { font-style: italic; font-size: 11px; color: var(--text-main); margin: 0; line-height: 1.4;}
+        .report-variant p { font-style: italic; font-size: 12px; color: var(--text-main); margin: 0; line-height: 1.5;}
 
         .rule-item {
             display: flex;
             align-items: center;
-            background-color: #000;
-            padding: 12px;
-            margin-bottom: 8px;
-            border-bottom: 1px solid var(--panel-border);
+            background-color: rgba(0,0,0,0.2);
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
         }
-        .rule-item:hover { background-color: #1a1c23; }
-        .rule-item i { font-size: 16px; width: 30px; text-align: center;}
+        .rule-item:hover { background-color: rgba(0,0,0,0.4); border-color: var(--glass-border); }
+        .rule-item i { font-size: 18px; width: 35px; text-align: center;}
 
         .rule-item.green i, .rule-item.green-theme i { color: var(--accent-green); }
         .rule-item.purple i, .rule-item.purple-theme i { color: var(--accent-purple); }
         .rule-item.red i { color: var(--accent-red); }
         .rule-item.pink i { color: var(--accent-pink); }
 
-        .rule-item div { font-size: 11px; padding-left: 10px; line-height: 1.4;}
-        .rule-item div strong { color: var(--text-light); display: block; font-size: 12px; margin-bottom: 3px; font-family: 'Montserrat', sans-serif;}
+        .rule-item div { font-size: 12px; padding-left: 10px; line-height: 1.4;}
+        .rule-item div strong { color: var(--text-light); display: block; font-size: 13px; margin-bottom: 3px; font-family: 'Montserrat', sans-serif;}
 
         /* --- ТАБЛИЦЫ --- */
         table { width: 100%; border-collapse: collapse; text-align: left; }
-        thead { background-color: #000; }
+        thead { background-color: rgba(0,0,0,0.3); }
 
         th {
             font-family: 'Montserrat', sans-serif;
             color: var(--text-muted);
             text-transform: uppercase;
             font-size: 10px;
-            padding: 10px 15px;
+            padding: 12px 20px;
             letter-spacing: 1px;
-            border-bottom: 2px solid var(--panel-border);
+            border-bottom: 1px solid var(--glass-border);
         }
         td {
-            padding: 10px 15px;
-            border-bottom: 1px solid var(--panel-border);
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
             vertical-align: middle;
-            font-size: 11px;
+            font-size: 12px;
             line-height: 1.5;
         }
-        tbody tr:hover { background-color: #1a1c23; }
+        tbody tr:hover { background-color: rgba(255,255,255,0.03); }
+        tbody tr:last-child td { border-bottom: none; } /* Убираем нижнюю линию у последнего ряда */
 
         .col-article { font-weight: 700; color: var(--text-light); width: 18%; font-size: 11px; font-family: 'Montserrat', sans-serif;}
         .col-article.pink { color: var(--accent-pink); }
@@ -246,22 +308,105 @@
         .col-desc { width: 64%; color: var(--text-main); }
         .col-desc strong { color: var(--text-light); font-weight: 700;}
 
-        .col-penalty { width: 18%; font-size: 10px; }
+        .col-penalty { width: 18%; font-size: 11px; }
         .penalty-highlight { color: var(--accent-red); font-weight: 700;}
         .fine-text { color: var(--accent-green); font-weight: 700;}
         .arrest-text { color: var(--accent-yellow); font-weight: 700;}
 
         tr.group-header td {
-            font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; text-transform: uppercase; padding: 8px 15px;
-            background-color: #000; letter-spacing: 1.5px; border-bottom: 2px solid var(--panel-border);
+            font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 10px 20px;
+            background-color: rgba(0,0,0,0.5); letter-spacing: 1px; border-bottom: 1px solid var(--glass-border); border-top: 1px solid var(--glass-border);
         }
         tr.group-header td i { margin-right: 8px; color: var(--text-light); }
         tr.group-header.yellow-header td { color: var(--accent-yellow); }
         tr.group-header.pink-header td { color: var(--accent-pink); }
         tr.group-header.green-header td { color: var(--accent-green); }
-        tr.group-header.purple-header td { color: var(--accent-purple); border-left: 2px solid var(--accent-purple);}
+        tr.group-header.purple-header td { color: var(--accent-purple); }
 
-        .exception-text { color: var(--accent-yellow); font-size: 10px; font-style: italic; display: block; margin-top: 4px; }
+        .exception-text { color: var(--accent-yellow); font-size: 11px; font-style: italic; display: block; margin-top: 4px; }
+
+        /* --- СТИЛИ ДЛЯ СТРАНИЦ "О НАС" И "ОТЗЫВЫ" --- */
+        .simple-content-box { max-width: 1000px; margin: 0 auto; }
+
+        .simple-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            margin-bottom: 25px;
+            border-radius: 24px; /* МАКСИМАЛЬНЫЕ СКРУГЛЕНИЯ */
+            backdrop-filter: blur(15px);
+            box-shadow: var(--glass-shadow);
+        }
+        .simple-card h2 { color: #fff; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; border-left: 4px solid var(--accent-blue); padding-left: 15px;}
+        .simple-card p { font-size: 15px; line-height: 1.7; margin-bottom: 15px; color: var(--text-main); }
+
+        /* =========================================================
+           ОБНОВЛЕННЫЙ БЛОК ОТЗЫВА - КРУГЛЫЙ СОВРЕМЕННЫЙ ДИЗАЙН
+           ========================================================= */
+        .review-layout {
+            display: flex;
+            align-items: stretch;
+            background: rgba(10, 15, 25, 0.7);
+            border: 1px solid var(--glass-border);
+            margin-bottom: 25px;
+            border-radius: 24px; /* КРУГЛЫЕ КРАЯ ОТЗЫВА */
+            box-shadow: var(--glass-shadow);
+            overflow: hidden;
+            min-height: 500px;
+            backdrop-filter: blur(20px);
+        }
+
+        .review-image-wrapper {
+            flex-shrink: 0;
+            width: 350px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background: transparent; /* НИКАКИХ КВАДРАТОВ И ФОНОВ */
+            border: none;
+            position: relative;
+        }
+
+        /* Легкое фиолетовое свечение позади девушки (опционально, для красоты) */
+        .review-image-wrapper::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .review-avatar-full {
+            width: auto;
+            max-width: 140%;
+            height: 100%;
+            max-height: 580px;
+            object-fit: contain;
+            object-position: bottom center;
+            display: block;
+            filter: drop-shadow(8px 0px 20px rgba(0,0,0,0.5));
+            color: transparent;
+            position: relative;
+            z-index: 2; /* Картинка поверх свечения */
+        }
+
+        .review-content {
+            padding: 50px 60px 50px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+            position: relative;
+            z-index: 3;
+        }
+
+        .review-content h4 { color: #fff; font-family: 'Montserrat', sans-serif; font-size: 26px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1.5px;}
+        .review-content span { color: var(--accent-yellow); font-size: 14px; margin-bottom: 25px; display: block;}
+        .review-content p { font-style: italic; margin-bottom: 20px; font-size: 16px; line-height: 1.8; color: var(--text-light);}
+        .review-content p:last-child { margin-bottom: 0; }
     </style>
 </head>
 <body>
@@ -269,845 +414,888 @@
 <div class="board-container">
 
     <header>
-        <h1>ШПАРГАЛКИ <span>BY BONN</span></h1>
+        <h1>САЙТ СЕМЬИ BONN <span>BY BONN</span></h1>
         <p>БАЗА ДАННЫХ // ЗАКОНЫ И РЕГЛАМЕНТЫ</p>
     </header>
+    <!-- ГЛАВНОЕ МЕНЮ САЙТА (ПЛАВАЮЩЕЕ СКРУГЛЕННОЕ) -->
+    <nav class="main-nav">
+        <button class="main-btn active" onclick="openMainTab(event, 'page-cheatsheets')">Шпаргалки</button>
+        <button class="main-btn" onclick="openMainTab(event, 'page-about')">О нас</button>
+        <button class="main-btn" onclick="openMainTab(event, 'page-reviews')">Отзывы</button>
+    </nav>
 
-    <!-- КНОПКИ ВКЛАДОК -->
-    <div class="tabs-container">
-        <button class="tab-btn active" onclick="openTab(event, 'tab-chilliad')">GTA5RP | MP</button>
-        <button class="tab-btn tab-pink" onclick="openTab(event, 'tab-minzdrav')">РО | МИН.ЗДРАВ</button>
-        <button class="tab-btn tab-green" onclick="openTab(event, 'tab-army')">GTA5RP | ARMY</button>
-        <button class="tab-btn tab-purple" onclick="openTab(event, 'tab-court')">GTA5RP | СУД И ПРАВО</button>
+    <!-- ==================== СТРАНИЦА 1: ШПАРГАЛКИ ==================== -->
+    <div id="page-cheatsheets" class="main-content active">
+
+        <!-- КНОПКИ СУБ-ВКЛАДОК ШПАРГАЛОК (СКРУГЛЕННЫЕ) -->
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="openSubTab(event, 'tab-chilliad')">GTA5RP | MP</button>
+            <button class="tab-btn tab-pink" onclick="openSubTab(event, 'tab-minzdrav')">РО | МИН.ЗДРАВ</button>
+            <button class="tab-btn tab-green" onclick="openSubTab(event, 'tab-army')">GTA5RP | ARMY</button>
+            <button class="tab-btn tab-purple" onclick="openSubTab(event, 'tab-court')">GTA5RP | СУД И ПРАВО</button>
+        </div>
+
+        <!-- ВКЛАДКА: CHILLIAD MP -->
+        <div id="tab-chilliad" class="sub-tab-content active">
+
+            <div class="signature-badge signature-badge-blue">
+                <i class="fa-solid fa-shield-halved"></i>
+                BONN & LEON
+            </div>
+
+            <div class="grid-4col">
+                <div class="col">
+                    <div class="card">
+                        <div class="section-title info-title">
+                            <i class="fa-solid fa-microphone-lines"></i>
+                            <h2>Доклады</h2>
+                        </div>
+                        <div class="report-variant">
+                            <h4>Вечернее построение</h4>
+                            <p>«Сэр! [Звание] [Фамилия]. MP на поверку построено. По списку: [число], в строю: [число]. За смену [число] нарушений. Форт под наблюдением. Доклад окончен!»</p>
+                        </div>
+                        <div class="report-variant">
+                            <h4>Активный день</h4>
+                            <p>«Сэр! [Звание] [Фамилия]. За день пресечено [число] проникновений, задержано [число] бойцов за СОЧ. Нарушители переданы. Доклад окончен!»</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="section-title info-title">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <h2>Тайминги</h2>
+                        </div>
+                        <div class="rule-item red">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <div><strong>Уголовка (УК)</strong> 1 год = 5 минут тюрьмы.</div>
+                        </div>
+                        <div class="rule-item green">
+                            <i class="fa-solid fa-clock"></i>
+                            <div><strong>Арест (КоАП)</strong> 1 сутки = 1 минута в КПЗ.</div>
+                        </div>
+                        <div class="rule-item purple">
+                            <i class="fa-solid fa-building-shield"></i>
+                            <div><strong>Тюрьмы</strong> КПЗ = LSPD/LSSD. Фед = FIB/USSS/MP.</div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="section-title terms-title">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <h2>Термины</h2>
+                        </div>
+                        <table>
+                            <tbody>
+                                <tr><td class="col-article" style="color: var(--accent-blue);">IC / OOC</td><td class="col-desc">IC — игра. OOC — реал (Discord). Метагейминг (смешивание) запрещен.</td></tr>
+                                <tr><td class="col-article" style="color: var(--accent-blue);">СОЧ</td><td class="col-desc">Ушел со службы без спроса/формы (18.2 УК).</td></tr>
+                                <tr><td class="col-article" style="color: var(--accent-blue);">Боло</td><td class="col-desc">Функциональный розыск (звезды). Выдается за преступления.</td></tr>
+                                <tr><td class="col-article" style="color: var(--accent-blue);">Генералитет</td><td class="col-desc">Генерал и замы. Иммунитет от личных досмотров.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title ustav-title">
+                            <i class="fa-solid fa-file-signature"></i>
+                            <h2>Устав MP</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Действие</th><th>Правила</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-article">Досмотр</td>
+                                    <td class="col-desc">Досмотр любого бойца на ФЗ.<br><span class="exception-text">Искл: Генералитет. Запрет на досмотр по КД.</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">Оружие<br>граждан</td>
+                                    <td class="col-desc"><strong>Не докапывайтесь до людей</strong> с вопросом «законно ли оружие?». Это работа LSPD/LSSD. Мы реагируем, только если оружие достали в открытую (25 КоАП) или при досмотре на КПП.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">Выдача</td>
+                                    <td class="col-desc">Выдача взысканий до должности Зам. Кома. Нарушения старших — Генералитету.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">Выговоры</td>
+                                    <td class="col-desc"><strong>Выговор:</strong> За 3 преда. (Отработка: 4 СО/1ч КПП)<br><strong>Строгий:</strong> 2 выговора. Блок повышения. (8 СО)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="section-title pk-title">
+                            <i class="fa-solid fa-book-open"></i>
+                            <h2>Процессуальный (ПК)</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Ст.</th><th>Описание и Порядок действий</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-article">Ст. 37<br>Сила</td>
+                                    <td class="col-desc">
+                                        1. Присутствие ➔ 2. Приказ ➔ 3. Физ. сила ➔ 4. Спецсредства ➔ 5. Огнестрел.<br>
+                                        <span class="exception-text" style="color: var(--accent-red);">Предупредительные выстрелы ЗАПРЕЩЕНЫ.</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">Ст. 17<br>Задерж-е</td>
+                                    <td class="col-desc">
+                                        1. Наручники ➔ Представиться ➔ 2. Первичный обыск<br>
+                                        3. Причина и Миранда ➔ 4. Участок ➔ Личность ➔ Права
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">Ст. 19<br>Госники</td>
+                                    <td class="col-desc">
+                                        <strong>Задержание Госника</strong><br>
+                                        Обязаны вызвать Руководство и Прокурора.<br>
+                                        <strong>Ожидание в рацию:</strong> до 15 мин (таймер заморожен).<br>
+                                        <span class="exception-text">Если Прокурор не ответил или не приехал — отпускаем!</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">Ст. 22<br>Права</td>
+                                    <td class="col-desc">
+                                        <strong>Звонок:</strong> до 5 мин. <strong>Ответ адвоката:</strong> до 5 мин.<br>
+                                        <strong>Приезд:</strong> до 10 мин. <strong>Конфид. беседа:</strong> до 10 мин.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">Ст. 29/30<br>Обыски</td>
+                                    <td class="col-desc">Граждане на КПП. Отказ = выдворение. Обыск авто вокруг ФЗ в радиусе 2 км без ордера.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title uk-title">
+                            <i class="fa-solid fa-gavel"></i>
+                            <h2>Уголовный Кодекс (Часть 1)</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Ст.</th><th>Описание преступления</th><th>Наказание</th></tr></thead>
+                            <tbody>
+                                <tr class="group-header yellow-header"><td colspan="3"><i class="fa-solid fa-jet-fighter"></i> Воинские преступления</td></tr>
+                                <tr>
+                                    <td class="col-article">18.1</td>
+                                    <td class="col-desc"><strong>Неисполнение приказа</strong> начальника.</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">До 4 лет</span> / $25k</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">18.2</td>
+                                    <td class="col-desc"><strong>СОЧ</strong> (самовольное оставление части).</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">До 4 лет</span> / $25k</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">18.3</td>
+                                    <td class="col-desc"><strong>Дезертирство</strong> (СОЧ в целях уклонения).</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">6 лет</span> / $35k</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">18.4</td>
+                                    <td class="col-desc"><strong>Нарушение правил дежурства</strong> (пропуск нападения).</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">До 8 лет</span> / $50k</td>
+                                </tr>
+
+                                <tr class="group-header yellow-header"><td colspan="3"><i class="fa-solid fa-shield-halved"></i> Проникновение и Оружие</td></tr>
+                                <tr>
+                                    <td class="col-article">12.6</td>
+                                    <td class="col-desc"><strong>Нарушение регламента посещения</strong> охр. объектов.</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">3 - 4 года</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">12.7</td>
+                                    <td class="col-desc"><strong>Проникновение на ФЗ</strong> (особо охраняемый объект).</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">До 6 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">12.8</td>
+                                    <td class="col-desc"><strong>Нелегал. оборот оружия</strong> (без лиц, стерты номера).</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">6 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">12.8.1</td>
+                                    <td class="col-desc"><strong>Гос. имущество у гражданских</strong> (броники, тайзеры).</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">6 - 8 лет</span></td>
+                                </tr>
+
+                                <tr class="group-header yellow-header"><td colspan="3"><i class="fa-solid fa-skull"></i> Нападения и Наркотики</td></tr>
+                                <tr>
+                                    <td class="col-article">6.2</td>
+                                    <td class="col-desc"><strong>Убийство</strong> другого человека.</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">9 - 12 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">17.1</td>
+                                    <td class="col-desc"><strong>Посягательство на жизнь гос. служащего.</strong></td>
+                                    <td class="col-penalty"><span class="penalty-highlight">6 - 12 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">17.2</td>
+                                    <td class="col-desc"><strong>Применение насилия</strong> к копу/военному.</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">6 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">13.1</td>
+                                    <td class="col-desc"><strong>Хранение наркотиков</strong> (легкие до 5г / тяж до 2г).</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">3 года</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title uk-title">
+                            <i class="fa-solid fa-gavel"></i>
+                            <h2>Уголовный Кодекс (Часть 2)</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Ст.</th><th>Описание преступления</th><th>Наказание</th></tr></thead>
+                            <tbody>
+                                <tr class="group-header yellow-header"><td colspan="3"><i class="fa-solid fa-car"></i> Имущество и Похищения</td></tr>
+                                <tr>
+                                    <td class="col-article">7.1</td>
+                                    <td class="col-desc"><strong>Похищение человека.</strong></td>
+                                    <td class="col-penalty"><span class="penalty-highlight">4 - 12 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">10.5</td>
+                                    <td class="col-desc"><strong>Угон ТС</strong> (неправомерное завладение).</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">3 - 4 года</span></td>
+                                </tr>
+
+                                <tr class="group-header yellow-header"><td colspan="3"><i class="fa-solid fa-person-military-pointing"></i> Должностные и Следствие</td></tr>
+                                <tr>
+                                    <td class="col-article">15.1</td>
+                                    <td class="col-desc"><strong>Превышение должностных полномочий.</strong></td>
+                                    <td class="col-penalty"><span class="penalty-highlight">6 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">15.4 / 15.5</td>
+                                    <td class="col-desc"><strong>Получение / Дача взятки.</strong></td>
+                                    <td class="col-penalty"><span class="penalty-highlight">До 8 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">15.6</td>
+                                    <td class="col-desc"><strong>Халатность</strong> (ненадлежащее исполнение).</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">3 - 6 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">16.12</td>
+                                    <td class="col-desc"><strong>Уклонение от следствия</strong> (лив от РП, смена доков).</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">8 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">16.14</td>
+                                    <td class="col-desc"><strong>Дача заведомо ложных показаний</strong> на допросе.</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">6 - 8 лет</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">17.6</td>
+                                    <td class="col-desc"><strong>Укрывательство</strong> правонарушителя / улик.</td>
+                                    <td class="col-penalty"><span class="penalty-highlight">До 4 лет</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="section-title koap-title">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                            <h2>КоАП</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Ст.</th><th>Описание правонарушения</th><th>Наказание</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-article">55 КоАП</td>
+                                    <td class="col-desc"><strong>Неповиновение законному требованию</strong> сотрудника.</td>
+                                    <td class="col-penalty"><span class="fine-text">$35k</span> / <span class="arrest-text">25с</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">53 КоАП</td>
+                                    <td class="col-desc"><strong>Оскорбление гос. служащего.</strong></td>
+                                    <td class="col-penalty"><span class="fine-text">$25k</span> / <span class="arrest-text">25с</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">22 КоАП</td>
+                                    <td class="col-desc"><strong>Мелкое хулиганство</strong> (мат на КПП).</td>
+                                    <td class="col-penalty"><span class="fine-text">$10k</span> / <span class="arrest-text">15с</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">24 КоАП</td>
+                                    <td class="col-desc"><strong>Нахождение в маске</strong> (после отказа снять).</td>
+                                    <td class="col-penalty"><span class="fine-text">$20k</span> / <span class="arrest-text">25с</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">25 КоАП</td>
+                                    <td class="col-desc"><strong>Обнажение оружия</strong> в общественном месте.</td>
+                                    <td class="col-penalty"><span class="fine-text">$15k</span> / <span class="arrest-text">25с</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article">29 КоАП</td>
+                                    <td class="col-desc"><strong>Безрассудное вождение</strong> (дрифт у КПП).</td>
+                                    <td class="col-penalty"><span class="fine-text">$15k</span> / <span class="arrest-text">30с</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА: МИН.ЗДРАВ -->
+        <div id="tab-minzdrav" class="sub-tab-content">
+
+            <div class="signature-badge signature-badge-pink">
+                <i class="fa-solid fa-heart"></i>
+                Егор Марсов & Дарина Марсова
+            </div>
+
+            <div class="grid-4col grid-minzdrav">
+
+                <div class="col">
+                    <div class="card">
+                        <div class="section-title pink-title">
+                            <i class="fa-solid fa-clock"></i>
+                            <h2>График и перерывы</h2>
+                        </div>
+                        <div class="report-variant pink">
+                            <h4>Рабочая смена</h4>
+                            <p><strong>ПН-ПТ:</strong> 10:00 - 22:00. <strong>СБ-ВС:</strong> 11:00 - 22:00.<br>Обеденный перерыв: 14:00 - 15:00.</p>
+                        </div>
+                        <div class="report-variant pink">
+                            <h4>Перерывы</h4>
+                            <p>Длительность до 30 мин (макс. 1 раз в час, не более 4-х за день). Запрещено снимать форму и покидать комнату отдыха!</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="section-title pink-title">
+                            <i class="fa-solid fa-briefcase-medical"></i>
+                            <h2>Норма инвентаря</h2>
+                        </div>
+                        <div class="rule-item pink">
+                            <i class="fa-solid fa-pills"></i>
+                            <div><strong>Таблетки:</strong><br>Парацетамол - 48 шт. Уголь - 24 шт. Азитромицин - 24 шт.</div>
+                        </div>
+                        <div class="rule-item pink">
+                            <i class="fa-solid fa-syringe"></i>
+                            <div><strong>Ампулы:</strong><br>Эпинефрин - 20 шт. (СМП / Ст. составу можно 30 шт). Бинты - 40 шт. ИРП - не более 3 шт в час.</div>
+                        </div>
+                        <div class="rule-item pink">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                            <div><strong>Дефибриллятор:</strong><br>СТРОГО 1 шт. в собственности! За утерю — моментальный увал + ЧС. Отчет за 20 мин.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title pink-title">
+                            <i class="fa-solid fa-sitemap"></i>
+                            <h2>Отделы больницы</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Отдел</th><th>Обязанности</th></tr></thead>
+                            <tbody>
+                                <tr><td class="col-article pink">СМП</td><td class="col-desc">Скорая помощь. Выезды (тайминг - 10 минут на прибытие), таблетки, <strong>приоритет на выдачу вакцин</strong>.</td></tr>
+                                <tr><td class="col-article pink">ПСЭС</td><td class="col-desc">Санитарный контроль, обследования. <strong>Приоритет на выдачу мед. справок</strong>.</td></tr>
+                                <tr><td class="col-article pink">ИТ</td><td class="col-desc">Интенсивная терапия: хирургия, ветеринария, косметология. Помощь СМП на вызовах.</td></tr>
+                                <tr><td class="col-article pink">ОК / АБ</td><td class="col-desc">ОК: Собеседования, обучение, отчеты.<br>АБ: Контроль, дисциплина, выговоры, брифинги.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="section-title pink-title">
+                            <i class="fa-solid fa-file-signature"></i>
+                            <h2>Дисциплина и взыскания</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Правило</th><th>Описание и Наказания</th></tr></thead>
+                            <tbody>
+                                <tr><td class="col-article pink">Выговоры</td><td class="col-desc">Отработка за <strong>48 часов</strong> (СС - 72ч). Не отработал = выдается следующий уровень (1/3 ➔ 2/3 ➔ Увал).</td></tr>
+                                <tr><td class="col-article pink">Увольнение</td><td class="col-desc">3 строгих = Увал + ЧС. Увал с неотработанным выговором или до должности "Лаборант" = ЧС.</td></tr>
+                                <tr><td class="col-article pink">Переаттест.</td><td class="col-desc">Сдается за 48 часов. Запрещено оказывать услуги и повышаться до сдачи. Дается 2 попытки!</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title pink-title" style="border-bottom-color: var(--accent-red);">
+                            <i class="fa-solid fa-ban" style="color: var(--accent-red);"></i>
+                            <h2 style="color: var(--accent-red);">Красные флаги (строго запрещено)</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Нарушение</th><th>Наказание и Описание</th></tr></thead>
+                            <tbody>
+                                <tr><td class="col-article pink">Оружие и Крайм</td><td class="col-desc"><strong>Увал + ЧС.</strong> Запрещено применять, поднимать и носить ЛЮБОЕ оружие (искл: нож для стяжек), а также спецсредства.</td></tr>
+                                <tr><td class="col-article pink">Перестрелки</td><td class="col-desc"><strong>Увал.</strong> Строго запрещено оказывать помощь во время перестрелок или ждать их окончания в эпицентре.</td></tr>
+                                <tr><td class="col-article pink">Отказ в лечении</td><td class="col-desc"><strong>Выговор.</strong> Отказывать пациентам запрещено.<br><span class="exception-text">Искл: Угроза жизни врачу, хамство, неоплата лечения.</span></td></tr>
+                                <tr><td class="col-article pink">Личный ТС и Выезды</td><td class="col-desc"><strong>Увал.</strong> Запрещено ездить на вызовы на личном авто. Езда между больницами - только без формы.</td></tr>
+                                <tr><td class="col-article pink">Транспорт АСМП</td><td class="col-desc"><strong>Выговор.</strong> Запрещено использовать в личных целях / возить посторонних. Оставлять без присмотра макс 10 мин.</td></tr>
+                                <tr><td class="col-article pink">Дресс-код</td><td class="col-desc"><strong>Выговор.</strong> Обязательно соблюдать дресс-код отдела. Запрещены любые маски/перчатки, кроме медицинских.</td></tr>
+                                <tr><td class="col-article pink">Прогул и Брифинги</td><td class="col-desc"><strong>Выговор.</strong> Явка на брифинг обязательна. Во время смены запрещено покидать территорию больницы по своим делам.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title pink-title">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <h2>Локации процедур</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th style="width: 50%;">ГКБ №1 (ЛС)</th><th style="width: 50%;">ГКБ №2 (Склифосовского)</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Вакцины/Опер.:</strong> Операционный блок (правое крыло).<br><strong>Справки:</strong> Кабинеты Терапевта (левое крыло).<br><strong>Парацетамол:</strong> У стойки регистрации.</td>
+                                    <td><strong>Вакцины:</strong> 1 этаж (Опер. №1/№2, Скорая).<br><strong>Справки:</strong> 2 этаж (Кардиолог, Педиатр, МРТ).<br><strong>Парацетамол:</strong> У стойки регистрации.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="section-title pink-title">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            <h2>Врачебная тайна и пациенты</h2>
+                        </div>
+                        <table>
+                            <tbody>
+                                <tr><td class="col-article pink">Врачебная тайна</td><td class="col-desc">Сведения о факте обращения, диагнозе и лечении строго конфиденциальны! Присутствие 3-х лиц на лечении - только с согласия врача и пациента. Врач вправе выгнать мешающего.</td></tr>
+                                <tr><td class="col-article pink">Гос. структуры</td><td class="col-desc">Сотрудники обязаны <strong>вне очереди</strong> оказывать медпомощь гос. службам (LSPD, FIB, SANG и т.д.) при исполнении ими обязанностей.</td></tr>
+                                <tr><td class="col-article pink">Отношение</td><td class="col-desc">Обязателен вежливый и уважительный тон. Запрещены пытки, унижения, а также отказ в помощи из-за личной неприязни.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="section-title pink-title">
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                            <h2>Прейскурант услуг</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Услуга</th><th>Описание</th><th>Стоимость</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-article pink">Парацетамол</td>
+                                    <td class="col-desc">Граждане < 5 лет в городе<br>Граждане от 5 лет в городе</td>
+                                    <td class="col-penalty"><span class="fine-text">100₽<br>300₽</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article pink">Мед. справки</td>
+                                    <td class="col-desc">О физическом здоровье<br>О психическом здоровье</td>
+                                    <td class="col-penalty"><span class="fine-text">2.500₽<br>5.000₽</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article pink">Вакцины</td>
+                                    <td class="col-desc">Гос. служащим (по удостов.)<br>Обычным гражданам</td>
+                                    <td class="col-penalty"><span class="fine-text">1.500₽<br>3.000₽</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article pink">Операция</td>
+                                    <td class="col-desc">Хирургическое вмешательство (ИТ)</td>
+                                    <td class="col-penalty"><span class="fine-text">По регламенту</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА: CHILLIAD ARMY -->
+        <div id="tab-army" class="sub-tab-content">
+            <div class="grid-4col">
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title green-title">
+                            <i class="fa-solid fa-sitemap"></i>
+                            <h2>Иерархия и Отделы SANG</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Структура</th><th>Описание и Должности</th></tr></thead>
+                            <tbody>
+                                <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-crown"></i> Иерархия (Гл. I)</td></tr>
+                                <tr>
+                                    <td class="col-article green-theme">Командование</td>
+                                    <td class="col-desc">Генерал ➔ Зам. Генерала ➔ Комендант Форта ➔ Командир подразделения ➔ Зам. командира ➔ Инструктор ➔ Бойцы.</td>
+                                </tr>
+                                <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-users-gear"></i> Подразделения</td></tr>
+                                <tr>
+                                    <td class="col-article green-theme">General Staff</td>
+                                    <td class="col-desc">Центр командования (Генерал, Замы, Комендант Форта). Имеют право делегировать полномочия.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Delta Force (DF)</td>
+                                    <td class="col-desc">Спецназ: антитеррор, спецоперации, силовые методы задержания, руководство спецоперациями SANG.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">SSD</td>
+                                    <td class="col-desc">Security Supply Division: охрана КПП, территории Форта Занкудо и сопровождение поставок.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Military Academy (MA)</td>
+                                    <td class="col-desc">Рекрутирование, КМБ, экзамены, переаттестация. Стажеры подчиняются MA.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Military Police (MP)</td>
+                                    <td class="col-desc">Военная полиция: патрулирование, поимка дезертиров, контроль дисциплины, выдача взысканий.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">USAF</td>
+                                    <td class="col-desc">Поддержка сухопутных сил, десантирование, контроль воздушного пространства штата.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Присяга (п. 2.13)</td>
+                                    <td class="col-desc">Обязательна к сдаче при получении звания «Рядовой» (защита Конституции США и добросовестное исполнение обязанностей).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title green-title">
+                            <i class="fa-solid fa-clock"></i>
+                            <h2>Служба, График и Строй</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Аспект</th><th>Правила и Регламент</th></tr></thead>
+                            <tbody>
+                                <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-calendar-days"></i> График (п. 2.6)</td></tr>
+                                <tr>
+                                    <td class="col-article green-theme">Рабочее время</td>
+                                    <td class="col-desc">Пн-Сб: 12:00 – 22:00.<br>Вс: 13:00 – 21:00.<br><em>Искл: MP и DF — ненормированный день.</em></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Обеденный перерыв</td>
+                                    <td class="col-desc">От 60 мин до 2 часов (после 2 ч на службе). Оформление за 30 мин в спецсвязи.</td>
+                                </tr>
+                                <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-users"></i> Построения (Гл. VIII)</td></tr>
+                                <tr>
+                                    <td class="col-article green-theme">Запреты в строю</td>
+                                    <td class="col-desc">Разговаривать, жестикулировать, использовать телефон, держать оружие, спать, самовольно покидать строй.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Порядок в строю</td>
+                                    <td class="col-desc">Порядок подразделений (слева направо): USAF ➔ DF ➔ SSD ➔ MP ➔ MA. Колонны по 4 человека.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Обращение из строя</td>
+                                    <td class="col-desc">«Сэр/Мэм, [Звание Фамилия] разрешите обратиться из строя, являюсь [Звание Фамилия]».</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title green-title">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <h2>Посты и Караул ФЗ</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Пост / Зона</th><th>Правила и Регламент</th></tr></thead>
+                            <tbody>
+                                <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-location-dot"></i> Основные посты</td></tr>
+                                <tr>
+                                    <td class="col-article green-theme">КПП-1 / КПП-2</td>
+                                    <td class="col-desc">До 6 караульных. КПП-1 — южный въезд (ограничен). КПП-2 — главный въезд (проверка доков, досмотр багажников).</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">ПБМ / Склад / ДВ</td>
+                                    <td class="col-desc">Парк боевых машин, склад оружия и диспетчерская вышка (без лимита караульных).</td>
+                                </tr>
+                                <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-bell"></i> Доклады и Караул</td></tr>
+                                <tr>
+                                    <td class="col-article green-theme">Доклады дежурного</td>
+                                    <td class="col-desc">Каждые 20 минут (00, 20, 40 мин): <strong>Тен-код | Номер поста | Состав (чел.)</strong>.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Исключения при досмотре</td>
+                                    <td class="col-desc">Генштаб, Губернатор, Вице-Губернатор, Судьи, Прокуратура, Подполковники+ не досматриваются.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Нарушения на КПП</td>
+                                    <td class="col-desc">При обнаружении оружия со сбитыми номерами («XX»), наркотиков, чужих броников — <strong>вызывать MP</strong>.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title green-title">
+                            <i class="fa-solid fa-ban"></i>
+                            <h2>Запреты и Взыскания</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Категория</th><th>Правила и Наказания</th></tr></thead>
+                            <tbody>
+                                <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-triangle-exclamation"></i> Основные запреты (Гл. III)</td></tr>
+                                <tr>
+                                    <td class="col-article green-theme">Выезд в форме</td>
+                                    <td class="col-desc">Запрещено покидать Форт в форме по личным делам или на личном ТС (до Подполковника без перерыва).</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Оружие граждан</td>
+                                    <td class="col-desc">Запрещено спрашивать у людей законно ли они носят оружие. SANG ведет надзор за оборотом оружия <strong>только в военное положение</strong>.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Имущество</td>
+                                    <td class="col-desc">Запрещено отдавать/продавать гос. имущество и оружие со склада гражданским.</td>
+                                </tr>
+                                <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-gavel"></i> Дисциплина (Гл. XV)</td></tr>
+                                <tr>
+                                    <td class="col-article green-theme">Взыскания</td>
+                                    <td class="col-desc">Предупреждение ➔ Выговор ➔ Строгий ➔ Понижение ➔ Увольнение с ЧС SANG.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Отработка выговоров</td>
+                                    <td class="col-desc"><strong>Выговор:</strong> 4 СО / 1 час КПП / 1 круг по кишке.<br><strong>Строгий:</strong> 8 СО / 2 часа КПП / 2 круга по кишке.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article green-theme">Кто выдает</td>
+                                    <td class="col-desc">Генералитет и Командир MP могут выдавать всем. Старший состав — только своему отделу.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА: СУД И ПРАВО -->
+        <div id="tab-court" class="sub-tab-content">
+
+            <div class="signature-badge signature-badge-purple">
+                <i class="fa-solid fa-scale-balanced"></i>
+                СУДЕБНЫЙ РЕГЛАМЕНТ
+            </div>
+
+            <div class="grid-4col">
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title purple-title">
+                            <i class="fa-solid fa-building-columns"></i>
+                            <h2>Иерархия Судов и Роли</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Структура</th><th>Описание и Полномочия</th></tr></thead>
+                            <tbody>
+                                <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-scale-unbalanced"></i> Инстанции</td></tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Окружной суд</td>
+                                    <td class="col-desc">Суд первой инстанции. Рассматривает гражданские и уголовные иски, нарушения УК, КоАП, ТК и внутренние уставы.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Апелляционный</td>
+                                    <td class="col-desc">Суд второй инстанции. Рассматривает жалобы на решения Окружного суда. Может отменить или изменить вердикт.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Верховный суд</td>
+                                    <td class="col-desc">Высшая инстанция. Дела против первых лиц (Губернатор, Министры), конституционные споры и апелляции на Апелляционный суд.</td>
+                                </tr>
+                                <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-users"></i> Участники процесса</td></tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Истец</td>
+                                    <td class="col-desc">Лицо или организация, подавшие исковое заявление. Должны доказывать вину ответчика.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Ответчик</td>
+                                    <td class="col-desc">Лицо, к которому предъявлен иск. Имеет право на адвоката и защиту.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Гос. Обвинитель</td>
+                                    <td class="col-desc">Сотрудник Прокуратуры. Выступает от лица Штата в уголовных делах, запрашивает наказание.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Судебный пристав</td>
+                                    <td class="col-desc">Обеспечивает безопасность в зале (обычно USSS). Выполняет прямые приказы судьи по удалению нарушителей.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title purple-title">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                            <h2>Базовые принципы и Термины</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Понятие</th><th>Значение для Судьи</th></tr></thead>
+                            <tbody>
+                                <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-balance-scale-right"></i> Основы Правосудия</td></tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Презумпция невиновности</td>
+                                    <td class="col-desc">Лицо считается невиновным, пока его вина не доказана судом. Любые <strong>неустранимые сомнения</strong> толкуются в пользу обвиняемого.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Бремя доказывания</td>
+                                    <td class="col-desc">Обязанность доказывать факты лежит на том, кто их утверждает (на Истце/Прокуроре). Обвиняемый не обязан доказывать свою невиновность.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Недопустимые улики</td>
+                                    <td class="col-desc">Любые доказательства, полученные с нарушением Конституции, ПК или прав гражданина (например, обыск без ордера). Суд обязан их отклонить.</td>
+                                </tr>
+                                <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-scroll"></i> Юридические термины</td></tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Судебный прецедент</td>
+                                    <td class="col-desc">Вынесенное решение суда по конкретному делу, которое становится обязательным правилом для всех аналогичных дел в будущем.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Отвод Судьи</td>
+                                    <td class="col-desc">Отстранение судьи от дела при наличии конфликта интересов (личная неприязнь, родственные связи с истцом/ответчиком).</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Хабеас Корпус</td>
+                                    <td class="col-desc">Право задержанного обжаловать законность своего ареста. Суд должен срочно проверить основания для удержания под стражей.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title purple-title">
+                            <i class="fa-solid fa-list-ol"></i>
+                            <h2>Порядок Судебного Заседания</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Стадия</th><th>Алгоритм действий Судьи</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-article purple-theme">1. Открытие</td>
+                                    <td class="col-desc">Удар молотком: <em>«Встать, суд идет!»</em> Проверка явки истца, ответчика, свидетелей. Удаление из зала посторонних лиц, нарушающих тишину.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">2. Права и Отводы</td>
+                                    <td class="col-desc">Судья разъясняет процессуальные права сторонам. Спрашивает, есть ли у сторон ходатайства или заявления об <strong>отводе судьи</strong>.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">3. Вступительное слово</td>
+                                    <td class="col-desc">Слово предоставляется Истцу (или Прокурору) для оглашения сути иска. Затем слово предоставляется Ответчику (или Адвокату).</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">4. Судебное следствие</td>
+                                    <td class="col-desc">Главная стадия: допрос истца, затем ответчика. Вызов и допрос свидетелей (перекрестный допрос). Изучение видеоматериалов и документов.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">5. Прения сторон</td>
+                                    <td class="col-desc">Финальные речи. Истец и ответчик подводят итоги своих позиций. Новые доказательства на этой стадии приобщать <strong>запрещено</strong>.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">6. Последнее слово</td>
+                                    <td class="col-desc">Предоставляется исключительно подсудимому/ответчику. Вопросы к нему на этой стадии не задаются.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">7. Вердикт</td>
+                                    <td class="col-desc">Суд удаляется в совещательную комнату (или берет паузу), после чего оглашает приговор. Удар молотком: <em>«Судебное заседание закрыто»</em>.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="table-container">
+                        <div class="section-title purple-title">
+                            <i class="fa-solid fa-file-contract"></i>
+                            <h2>Ордера и Правила поведения</h2>
+                        </div>
+                        <table>
+                            <thead><tr><th>Документ / Правило</th><th>Назначение и Применение</th></tr></thead>
+                            <tbody>
+                                <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-stamp"></i> Судебные Ордера (Warrants)</td></tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Ордер на Арест<br>(Arrest Warrant)</td>
+                                    <td class="col-desc">Выдается судом (или Прокуратурой) на основании улик. Дает право задержать лицо вне зависимости от его текущего статуса.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Ордер на Обыск<br>(Search Warrant)</td>
+                                    <td class="col-desc">Разрешение на принудительный обыск частного жилища, офиса или личного закрытого транспорта подозреваемого.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Снятие<br>неприкосновенности</td>
+                                    <td class="col-desc">Для задержания высших лиц (Министры, Мэры) суд должен выпустить ордер, временно лишающий их статуса неприкосновенности.</td>
+                                </tr>
+                                <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-gavel"></i> Уважение к суду</td></tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Неуважение к суду</td>
+                                    <td class="col-desc">Крики, перебивание судьи, отказ подчиняться приказам, оскорбления. Судья вправе выписать <strong>штраф</strong> или приказать приставам <strong>арестовать</strong> нарушителя.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Лжесвидетельство<br>(Perjury)</td>
+                                    <td class="col-desc">Умышленная дача ложных показаний в суде. Является строгим уголовным преступлением. Инициируется задержание прямо в зале.</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-article purple-theme">Нейтралитет Судьи</td>
+                                    <td class="col-desc">Судье <strong>строго запрещено</strong> повышать голос, оскорблять участников или демонстрировать предвзятость. Только холодный рассудок.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- Конец страницы Шпаргалок -->
+
+    <!-- ==================== СТРАНИЦА 2: О НАС ==================== -->
+    <div id="page-about" class="main-content">
+        <div class="simple-content-box">
+            <div class="card">
+                <div class="section-title">
+                    <i class="fa-solid fa-info-circle"></i>
+                    <h2>Проект создан для удобства игроков</h2>
+                </div>
+                <p>Мы — <strong>BONN & LEON</strong>, а также <strong>Егор Марсов и Дарина Марсова</strong>. Играя на проекте GTA 5 RP, мы столкнулись с проблемой: нужную информацию (законы, тен-коды, прайс-листы и уставы) приходилось долго искать по разным Discord-каналам прямо во время активного РП-процесса.</p>
+                <p>Поэтому мы решили объединить все наши знания и создать единую базу данных. Наш сайт — это интерактивная шпаргалка с современным дизайном. Она работает быстро, не требует скачивания и идеально подходит для использования в оверлее Steam.</p>
+                <p>Проект постоянно обновляется. Если у вас есть предложения по улучшению, вы можете связаться с нами в Discord.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- ==================== ВКЛАДКА: CHILLIAD MP ==================== -->
-    <div id="tab-chilliad" class="tab-content active">
+    <!-- ==================== СТРАНИЦА 3: ОТЗЫВЫ ==================== -->
+    <div id="page-reviews" class="main-content">
+        <div class="simple-content-box">
 
-        <div class="signature-badge-blue">
-            <i class="fa-solid fa-shield-halved"></i>
-            BONN & LEON
-        </div>
-
-        <div class="grid-4col">
-            <div class="col">
-                <div class="card">
-                    <div class="section-title info-title">
-                        <i class="fa-solid fa-microphone-lines"></i>
-                        <h2>Доклады</h2>
-                    </div>
-                    <div class="report-variant">
-                        <h4>Вечернее построение</h4>
-                        <p>«Сэр! [Звание] [Фамилия]. MP на поверку построено. По списку: [число], в строю: [число]. За смену [число] нарушений. Форт под наблюдением. Доклад окончен!»</p>
-                    </div>
-                    <div class="report-variant">
-                        <h4>Активный день</h4>
-                        <p>«Сэр! [Звание] [Фамилия]. За день пресечено [число] проникновений, задержано [число] бойцов за СОЧ. Нарушители переданы. Доклад окончен!»</p>
-                    </div>
+            <!-- ИДЕАЛЬНЫЙ СКРУГЛЕННЫЙ БЛОК ОТЗЫВА БЕЗ КВАДРАТОВ -->
+            <div class="review-layout">
+                <div class="review-image-wrapper">
+                    <!-- Замени 'image_5351db.png' на свою картинку БЕЗ ФОНА -->
+                    <img src="bonya.png" alt="" class="review-avatar-full">
                 </div>
-
-                <div class="card">
-                    <div class="section-title info-title">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                        <h2>Тайминги</h2>
-                    </div>
-                    <div class="rule-item red">
-                        <i class="fa-solid fa-stopwatch"></i>
-                        <div><strong>Уголовка (УК)</strong> 1 год = 5 минут тюрьмы.</div>
-                    </div>
-                    <div class="rule-item green">
-                        <i class="fa-solid fa-clock"></i>
-                        <div><strong>Арест (КоАП)</strong> 1 сутки = 1 минута в КПЗ.</div>
-                    </div>
-                    <div class="rule-item purple">
-                        <i class="fa-solid fa-building-shield"></i>
-                        <div><strong>Тюрьмы</strong> КПЗ = LSPD/LSSD. Фед = FIB/USSS/MP.</div>
-                    </div>
-                </div>
-
-                <div class="table-container">
-                    <div class="section-title terms-title">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <h2>Термины</h2>
-                    </div>
-                    <table>
-                        <tbody>
-                            <tr><td class="col-article" style="color: var(--accent-blue);">IC / OOC</td><td class="col-desc">IC — игра. OOC — реал (Discord). Метагейминг (смешивание) запрещен.</td></tr>
-                            <tr><td class="col-article" style="color: var(--accent-blue);">СОЧ</td><td class="col-desc">Ушел со службы без спроса/формы (18.2 УК).</td></tr>
-                            <tr><td class="col-article" style="color: var(--accent-blue);">Боло</td><td class="col-desc">Функциональный розыск (звезды). Выдается за преступления.</td></tr>
-                            <tr><td class="col-article" style="color: var(--accent-blue);">Генералитет</td><td class="col-desc">Генерал и замы. Иммунитет от личных досмотров.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title ustav-title">
-                        <i class="fa-solid fa-file-signature"></i>
-                        <h2>Устав MP</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Действие</th><th>Правила</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-article">Досмотр</td>
-                                <td class="col-desc">Досмотр любого бойца на ФЗ.<br><span class="exception-text">Искл: Генералитет. Запрет на досмотр по КД.</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">Оружие<br>граждан</td>
-                                <td class="col-desc"><strong>Не докапывайтесь до людей</strong> с вопросом «законно ли оружие?». Это работа LSPD/LSSD. Мы реагируем, только если оружие достали в открытую (25 КоАП) или при досмотре на КПП.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">Выдача</td>
-                                <td class="col-desc">Выдача взысканий до должности Зам. Кома. Нарушения старших — Генералитету.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">Выговоры</td>
-                                <td class="col-desc"><strong>Выговор:</strong> За 3 преда. (Отработка: 4 СО/1ч КПП)<br><strong>Строгий:</strong> 2 выговора. Блок повышения. (8 СО)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="table-container">
-                    <div class="section-title pk-title">
-                        <i class="fa-solid fa-book-open"></i>
-                        <h2>Процессуальный (ПК)</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Ст.</th><th>Описание и Порядок действий</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-article">Ст. 37<br>Сила</td>
-                                <td class="col-desc">
-                                    1. Присутствие ➔ 2. Приказ ➔ 3. Физ. сила ➔ 4. Спецсредства ➔ 5. Огнестрел.<br>
-                                    <span class="exception-text" style="color: var(--accent-red);">Предупредительные выстрелы ЗАПРЕЩЕНЫ.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">Ст. 17<br>Задерж-е</td>
-                                <td class="col-desc">
-                                    1. Наручники ➔ Представиться ➔ 2. Первичный обыск<br>
-                                    3. Причина и Миранда ➔ 4. Участок ➔ Личность ➔ Права
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">Ст. 19<br>Госники</td>
-                                <td class="col-desc">
-                                    <strong>Задержание Госника</strong><br>
-                                    Обязаны вызвать Руководство и Прокурора.<br>
-                                    <strong>Ожидание в рацию:</strong> до 15 мин (таймер заморожен).<br>
-                                    <span class="exception-text">Если Прокурор не ответил или не приехал — отпускаем!</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">Ст. 22<br>Права</td>
-                                <td class="col-desc">
-                                    <strong>Звонок:</strong> до 5 мин. <strong>Ответ адвоката:</strong> до 5 мин.<br>
-                                    <strong>Приезд:</strong> до 10 мин. <strong>Конфид. беседа:</strong> до 10 мин.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">Ст. 29/30<br>Обыски</td>
-                                <td class="col-desc">Граждане на КПП. Отказ = выдворение. Обыск авто вокруг ФЗ в радиусе 2 км без ордера.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title uk-title">
-                        <i class="fa-solid fa-gavel"></i>
-                        <h2>Уголовный Кодекс (Часть 1)</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Ст.</th><th>Описание преступления</th><th>Наказание</th></tr></thead>
-                        <tbody>
-                            <tr class="group-header yellow-header"><td colspan="3"><i class="fa-solid fa-jet-fighter"></i> Воинские преступления</td></tr>
-                            <tr>
-                                <td class="col-article">18.1</td>
-                                <td class="col-desc"><strong>Неисполнение приказа</strong> начальника.</td>
-                                <td class="col-penalty"><span class="penalty-highlight">До 4 лет</span> / $25k</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">18.2</td>
-                                <td class="col-desc"><strong>СОЧ</strong> (самовольное оставление части).</td>
-                                <td class="col-penalty"><span class="penalty-highlight">До 4 лет</span> / $25k</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">18.3</td>
-                                <td class="col-desc"><strong>Дезертирство</strong> (СОЧ в целях уклонения).</td>
-                                <td class="col-penalty"><span class="penalty-highlight">6 лет</span> / $35k</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">18.4</td>
-                                <td class="col-desc"><strong>Нарушение правил дежурства</strong> (пропуск нападения).</td>
-                                <td class="col-penalty"><span class="penalty-highlight">До 8 лет</span> / $50k</td>
-                            </tr>
-
-                            <tr class="group-header yellow-header"><td colspan="3"><i class="fa-solid fa-shield-halved"></i> Проникновение и Оружие</td></tr>
-                            <tr>
-                                <td class="col-article">12.6</td>
-                                <td class="col-desc"><strong>Нарушение регламента посещения</strong> охр. объектов.</td>
-                                <td class="col-penalty"><span class="penalty-highlight">3 - 4 года</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">12.7</td>
-                                <td class="col-desc"><strong>Проникновение на ФЗ</strong> (особо охраняемый объект).</td>
-                                <td class="col-penalty"><span class="penalty-highlight">До 6 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">12.8</td>
-                                <td class="col-desc"><strong>Нелегал. оборот оружия</strong> (без лиц, стерты номера).</td>
-                                <td class="col-penalty"><span class="penalty-highlight">6 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">12.8.1</td>
-                                <td class="col-desc"><strong>Гос. имущество у гражданских</strong> (броники, тайзеры).</td>
-                                <td class="col-penalty"><span class="penalty-highlight">6 - 8 лет</span></td>
-                            </tr>
-
-                            <tr class="group-header yellow-header"><td colspan="3"><i class="fa-solid fa-skull"></i> Нападения и Наркотики</td></tr>
-                            <tr>
-                                <td class="col-article">6.2</td>
-                                <td class="col-desc"><strong>Убийство</strong> другого человека.</td>
-                                <td class="col-penalty"><span class="penalty-highlight">9 - 12 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">17.1</td>
-                                <td class="col-desc"><strong>Посягательство на жизнь гос. служащего.</strong></td>
-                                <td class="col-penalty"><span class="penalty-highlight">6 - 12 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">17.2</td>
-                                <td class="col-desc"><strong>Применение насилия</strong> к копу/военному.</td>
-                                <td class="col-penalty"><span class="penalty-highlight">6 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">13.1</td>
-                                <td class="col-desc"><strong>Хранение наркотиков</strong> (легкие до 5г / тяж до 2г).</td>
-                                <td class="col-penalty"><span class="penalty-highlight">3 года</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title uk-title">
-                        <i class="fa-solid fa-gavel"></i>
-                        <h2>Уголовный Кодекс (Часть 2)</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Ст.</th><th>Описание преступления</th><th>Наказание</th></tr></thead>
-                        <tbody>
-                            <tr class="group-header yellow-header"><td colspan="3"><i class="fa-solid fa-car"></i> Имущество и Похищения</td></tr>
-                            <tr>
-                                <td class="col-article">7.1</td>
-                                <td class="col-desc"><strong>Похищение человека.</strong></td>
-                                <td class="col-penalty"><span class="penalty-highlight">4 - 12 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">10.5</td>
-                                <td class="col-desc"><strong>Угон ТС</strong> (неправомерное завладение).</td>
-                                <td class="col-penalty"><span class="penalty-highlight">3 - 4 года</span></td>
-                            </tr>
-
-                            <tr class="group-header yellow-header"><td colspan="3"><i class="fa-solid fa-person-military-pointing"></i> Должностные и Следствие</td></tr>
-                            <tr>
-                                <td class="col-article">15.1</td>
-                                <td class="col-desc"><strong>Превышение должностных полномочий.</strong></td>
-                                <td class="col-penalty"><span class="penalty-highlight">6 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">15.4 / 15.5</td>
-                                <td class="col-desc"><strong>Получение / Дача взятки.</strong></td>
-                                <td class="col-penalty"><span class="penalty-highlight">До 8 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">15.6</td>
-                                <td class="col-desc"><strong>Халатность</strong> (ненадлежащее исполнение).</td>
-                                <td class="col-penalty"><span class="penalty-highlight">3 - 6 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">16.12</td>
-                                <td class="col-desc"><strong>Уклонение от следствия</strong> (лив от РП, смена доков).</td>
-                                <td class="col-penalty"><span class="penalty-highlight">8 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">16.14</td>
-                                <td class="col-desc"><strong>Дача заведомо ложных показаний</strong> на допросе.</td>
-                                <td class="col-penalty"><span class="penalty-highlight">6 - 8 лет</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">17.6</td>
-                                <td class="col-desc"><strong>Укрывательство</strong> правонарушителя / улик.</td>
-                                <td class="col-penalty"><span class="penalty-highlight">До 4 лет</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="table-container">
-                    <div class="section-title koap-title">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                        <h2>КоАП</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Ст.</th><th>Описание правонарушения</th><th>Наказание</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-article">55 КоАП</td>
-                                <td class="col-desc"><strong>Неповиновение законному требованию</strong> сотрудника.</td>
-                                <td class="col-penalty"><span class="fine-text">$35k</span> / <span class="arrest-text">25с</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">53 КоАП</td>
-                                <td class="col-desc"><strong>Оскорбление гос. служащего.</strong></td>
-                                <td class="col-penalty"><span class="fine-text">$25k</span> / <span class="arrest-text">25с</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">22 КоАП</td>
-                                <td class="col-desc"><strong>Мелкое хулиганство</strong> (мат на КПП).</td>
-                                <td class="col-penalty"><span class="fine-text">$10k</span> / <span class="arrest-text">15с</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">24 КоАП</td>
-                                <td class="col-desc"><strong>Нахождение в маске</strong> (после отказа снять).</td>
-                                <td class="col-penalty"><span class="fine-text">$20k</span> / <span class="arrest-text">25с</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">25 КоАП</td>
-                                <td class="col-desc"><strong>Обнажение оружия</strong> в общественном месте.</td>
-                                <td class="col-penalty"><span class="fine-text">$15k</span> / <span class="arrest-text">25с</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article">29 КоАП</td>
-                                <td class="col-desc"><strong>Безрассудное вождение</strong> (дрифт у КПП).</td>
-                                <td class="col-penalty"><span class="fine-text">$15k</span> / <span class="arrest-text">30с</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== ВКЛАДКА: МИН.ЗДРАВ ==================== -->
-    <div id="tab-minzdrav" class="tab-content">
-
-        <div class="signature-badge-pink">
-            <i class="fa-solid fa-heart"></i>
-            Егор Марсов & Дарина Марсова
-        </div>
-
-        <div class="grid-4col grid-minzdrav">
-
-            <div class="col">
-                <div class="card">
-                    <div class="section-title pink-title">
-                        <i class="fa-solid fa-clock"></i>
-                        <h2>График и перерывы</h2>
-                    </div>
-                    <div class="report-variant pink">
-                        <h4>Рабочая смена</h4>
-                        <p><strong>ПН-ПТ:</strong> 10:00 - 22:00. <strong>СБ-ВС:</strong> 11:00 - 22:00.<br>Обеденный перерыв: 14:00 - 15:00.</p>
-                    </div>
-                    <div class="report-variant pink">
-                        <h4>Перерывы</h4>
-                        <p>Длительность до 30 мин (макс. 1 раз в час, не более 4-х за день). Запрещено снимать форму и покидать комнату отдыха!</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="section-title pink-title">
-                        <i class="fa-solid fa-briefcase-medical"></i>
-                        <h2>Норма инвентаря</h2>
-                    </div>
-                    <div class="rule-item pink">
-                        <i class="fa-solid fa-pills"></i>
-                        <div><strong>Таблетки:</strong><br>Парацетамол - 48 шт. Уголь - 24 шт. Азитромицин - 24 шт.</div>
-                    </div>
-                    <div class="rule-item pink">
-                        <i class="fa-solid fa-syringe"></i>
-                        <div><strong>Ампулы:</strong><br>Эпинефрин - 20 шт. (СМП / Ст. составу можно 30 шт). Бинты - 40 шт. ИРП - не более 3 шт в час.</div>
-                    </div>
-                    <div class="rule-item pink">
-                        <i class="fa-solid fa-heart-pulse"></i>
-                        <div><strong>Дефибриллятор:</strong><br>СТРОГО 1 шт. в собственности! За утерю — моментальный увал + ЧС. Отчет за 20 мин.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title pink-title">
-                        <i class="fa-solid fa-sitemap"></i>
-                        <h2>Отделы больницы</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Отдел</th><th>Обязанности</th></tr></thead>
-                        <tbody>
-                            <tr><td class="col-article pink">СМП</td><td class="col-desc">Скорая помощь. Выезды (тайминг - 10 минут на прибытие), таблетки, <strong>приоритет на выдачу вакцин</strong>.</td></tr>
-                            <tr><td class="col-article pink">ПСЭС</td><td class="col-desc">Санитарный контроль, обследования. <strong>Приоритет на выдачу мед. справок</strong>.</td></tr>
-                            <tr><td class="col-article pink">ИТ</td><td class="col-desc">Интенсивная терапия: хирургия, ветеринария, косметология. Помощь СМП на вызовах.</td></tr>
-                            <tr><td class="col-article pink">ОК / АБ</td><td class="col-desc">ОК: Собеседования, обучение, отчеты.<br>АБ: Контроль, дисциплина, выговоры, брифинги.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="table-container">
-                    <div class="section-title pink-title">
-                        <i class="fa-solid fa-file-signature"></i>
-                        <h2>Дисциплина и взыскания</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Правило</th><th>Описание и Наказания</th></tr></thead>
-                        <tbody>
-                            <tr><td class="col-article pink">Выговоры</td><td class="col-desc">Отработка за <strong>48 часов</strong> (СС - 72ч). Не отработал = выдается следующий уровень (1/3 ➔ 2/3 ➔ Увал).</td></tr>
-                            <tr><td class="col-article pink">Увольнение</td><td class="col-desc">3 строгих = Увал + ЧС. Увал с неотработанным выговором или до должности "Лаборант" = ЧС.</td></tr>
-                            <tr><td class="col-article pink">Переаттест.</td><td class="col-desc">Сдается за 48 часов. Запрещено оказывать услуги и повышаться до сдачи. Дается 2 попытки!</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title pink-title" style="border-bottom-color: var(--accent-red);">
-                        <i class="fa-solid fa-ban" style="color: var(--accent-red);"></i>
-                        <h2 style="color: var(--accent-red);">Красные флаги (строго запрещено)</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Нарушение</th><th>Наказание и Описание</th></tr></thead>
-                        <tbody>
-                            <tr><td class="col-article pink">Оружие и Крайм</td><td class="col-desc"><strong>Увал + ЧС.</strong> Запрещено применять, поднимать и носить ЛЮБОЕ оружие (искл: нож для стяжек), а также спецсредства.</td></tr>
-                            <tr><td class="col-article pink">Перестрелки</td><td class="col-desc"><strong>Увал.</strong> Строго запрещено оказывать помощь во время перестрелок или ждать их окончания в эпицентре.</td></tr>
-                            <tr><td class="col-article pink">Отказ в лечении</td><td class="col-desc"><strong>Выговор.</strong> Отказывать пациентам запрещено.<br><span class="exception-text">Искл: Угроза жизни врачу, хамство, неоплата лечения.</span></td></tr>
-                            <tr><td class="col-article pink">Личный ТС и Выезды</td><td class="col-desc"><strong>Увал.</strong> Запрещено ездить на вызовы на личном авто. Езда между больницами - только без формы.</td></tr>
-                            <tr><td class="col-article pink">Транспорт АСМП</td><td class="col-desc"><strong>Выговор.</strong> Запрещено использовать в личных целях / возить посторонних. Оставлять без присмотра макс 10 мин.</td></tr>
-                            <tr><td class="col-article pink">Дресс-код</td><td class="col-desc"><strong>Выговор.</strong> Обязательно соблюдать дресс-код отдела. Запрещены любые маски/перчатки, кроме медицинских.</td></tr>
-                            <tr><td class="col-article pink">Прогул и Брифинги</td><td class="col-desc"><strong>Выговор.</strong> Явка на брифинг обязательна. Во время смены запрещено покидать территорию больницы по своим делам.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title pink-title">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                        <h2>Локации процедур</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th style="width: 50%;">ГКБ №1 (ЛС)</th><th style="width: 50%;">ГКБ №2 (Склифосовского)</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Вакцины/Опер.:</strong> Операционный блок (правое крыло).<br><strong>Справки:</strong> Кабинеты Терапевта (левое крыло).<br><strong>Парацетамол:</strong> У стойки регистрации.</td>
-                                <td><strong>Вакцины:</strong> 1 этаж (Опер. №1/№2, Скорая).<br><strong>Справки:</strong> 2 этаж (Кардиолог, Педиатр, МРТ).<br><strong>Парацетамол:</strong> У стойки регистрации.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="table-container">
-                    <div class="section-title pink-title">
-                        <i class="fa-solid fa-user-doctor"></i>
-                        <h2>Врачебная тайна и пациенты</h2>
-                    </div>
-                    <table>
-                        <tbody>
-                            <tr><td class="col-article pink">Врачебная тайна</td><td class="col-desc">Сведения о факте обращения, диагнозе и лечении строго конфиденциальны! Присутствие 3-х лиц на лечении - только с согласия врача и пациента. Врач вправе выгнать мешающего.</td></tr>
-                            <tr><td class="col-article pink">Гос. структуры</td><td class="col-desc">Сотрудники обязаны <strong>вне очереди</strong> оказывать медпомощь гос. службам (LSPD, FIB, SANG и т.д.) при исполнении ими обязанностей.</td></tr>
-                            <tr><td class="col-article pink">Отношение</td><td class="col-desc">Обязателен вежливый и уважительный тон. Запрещены пытки, унижения, а также отказ в помощи из-за личной неприязни.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="table-container">
-                    <div class="section-title pink-title">
-                        <i class="fa-solid fa-money-bill-wave"></i>
-                        <h2>Прейскурант услуг</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Услуга</th><th>Описание</th><th>Стоимость</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-article pink">Парацетамол</td>
-                                <td class="col-desc">Граждане < 5 лет в городе<br>Граждане от 5 лет в городе</td>
-                                <td class="col-penalty"><span class="fine-text">100₽<br>300₽</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article pink">Мед. справки</td>
-                                <td class="col-desc">О физическом здоровье<br>О психическом здоровье</td>
-                                <td class="col-penalty"><span class="fine-text">2.500₽<br>5.000₽</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article pink">Вакцины</td>
-                                <td class="col-desc">Гос. служащим (по удостов.)<br>Обычным гражданам</td>
-                                <td class="col-penalty"><span class="fine-text">1.500₽<br>3.000₽</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article pink">Операция</td>
-                                <td class="col-desc">Хирургическое вмешательство (ИТ)</td>
-                                <td class="col-penalty"><span class="fine-text">По регламенту</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- ==================== ВКЛАДКА: CHILLIAD ARMY ==================== -->
-    <div id="tab-army" class="tab-content">
-        <div class="grid-4col">
-
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title green-title">
-                        <i class="fa-solid fa-sitemap"></i>
-                        <h2>Иерархия и Отделы SANG</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Структура</th><th>Описание и Должности</th></tr></thead>
-                        <tbody>
-                            <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-crown"></i> Иерархия (Гл. I)</td></tr>
-                            <tr>
-                                <td class="col-article green-theme">Командование</td>
-                                <td class="col-desc">Генерал ➔ Зам. Генерала ➔ Комендант Форта ➔ Командир подразделения ➔ Зам. командира ➔ Инструктор ➔ Бойцы.</td>
-                            </tr>
-                            <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-users-gear"></i> Подразделения</td></tr>
-                            <tr>
-                                <td class="col-article green-theme">General Staff</td>
-                                <td class="col-desc">Центр командования (Генерал, Замы, Комендант Форта). Имеют право делегировать полномочия.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Delta Force (DF)</td>
-                                <td class="col-desc">Спецназ: антитеррор, спецоперации, силовые методы задержания, руководство спецоперациями SANG.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">SSD</td>
-                                <td class="col-desc">Security Supply Division: охрана КПП, территории Форта Занкудо и сопровождение поставок.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Military Academy (MA)</td>
-                                <td class="col-desc">Рекрутирование, КМБ, экзамены, переаттестация. Стажеры подчиняются MA.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Military Police (MP)</td>
-                                <td class="col-desc">Военная полиция: патрулирование, поимка дезертиров, контроль дисциплины, выдача взысканий.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">USAF</td>
-                                <td class="col-desc">Поддержка сухопутных сил, десантирование, контроль воздушного пространства штата.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Присяга (п. 2.13)</td>
-                                <td class="col-desc">Обязательна к сдаче при получении звания «Рядовой» (защита Конституции США и добросовестное исполнение обязанностей).</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title green-title">
-                        <i class="fa-solid fa-clock"></i>
-                        <h2>Служба, График и Строй</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Аспект</th><th>Правила и Регламент</th></tr></thead>
-                        <tbody>
-                            <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-calendar-days"></i> График (п. 2.6)</td></tr>
-                            <tr>
-                                <td class="col-article green-theme">Рабочее время</td>
-                                <td class="col-desc">Пн-Сб: 12:00 – 22:00.<br>Вс: 13:00 – 21:00.<br><em>Искл: MP и DF — ненормированный день.</em></td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Обеденный перерыв</td>
-                                <td class="col-desc">От 60 мин до 2 часов (после 2 ч на службе). Оформление за 30 мин в спецсвязи.</td>
-                            </tr>
-                            <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-users"></i> Построения (Гл. VIII)</td></tr>
-                            <tr>
-                                <td class="col-article green-theme">Запреты в строю</td>
-                                <td class="col-desc">Разговаривать, жестикулировать, использовать телефон, держать оружие, спать, самовольно покидать строй.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Порядок в строю</td>
-                                <td class="col-desc">Порядок подразделений (слева направо): USAF ➔ DF ➔ SSD ➔ MP ➔ MA. Колонны по 4 человека.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Обращение из строя</td>
-                                <td class="col-desc">«Сэр/Мэм, [Звание Фамилия] разрешите обратиться из строя, являюсь [Звание Фамилия]».</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title green-title">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <h2>Посты и Караул ФЗ</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Пост / Зона</th><th>Правила и Регламент</th></tr></thead>
-                        <tbody>
-                            <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-location-dot"></i> Основные посты</td></tr>
-                            <tr>
-                                <td class="col-article green-theme">КПП-1 / КПП-2</td>
-                                <td class="col-desc">До 6 караульных. КПП-1 — южный въезд (ограничен). КПП-2 — главный въезд (проверка доков, досмотр багажников).</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">ПБМ / Склад / ДВ</td>
-                                <td class="col-desc">Парк боевых машин, склад оружия и диспетчерская вышка (без лимита караульных).</td>
-                            </tr>
-                            <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-bell"></i> Доклады и Караул</td></tr>
-                            <tr>
-                                <td class="col-article green-theme">Доклады дежурного</td>
-                                <td class="col-desc">Каждые 20 минут (00, 20, 40 мин): <strong>Тен-код | Номер поста | Состав (чел.)</strong>.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Исключения при досмотре</td>
-                                <td class="col-desc">Генштаб, Губернатор, Вице-Губернатор, Судьи, Прокуратура, Подполковники+ не досматриваются.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Нарушения на КПП</td>
-                                <td class="col-desc">При обнаружении оружия со сбитыми номерами («XX»), наркотиков, чужих броников — <strong>вызывать MP</strong>.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title green-title">
-                        <i class="fa-solid fa-ban"></i>
-                        <h2>Запреты и Взыскания</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Категория</th><th>Правила и Наказания</th></tr></thead>
-                        <tbody>
-                            <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-triangle-exclamation"></i> Основные запреты (Гл. III)</td></tr>
-                            <tr>
-                                <td class="col-article green-theme">Выезд в форме</td>
-                                <td class="col-desc">Запрещено покидать Форт в форме по личным делам или на личном ТС (до Подполковника без перерыва).</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Оружие граждан</td>
-                                <td class="col-desc">Запрещено спрашивать у людей законно ли они носят оружие. SANG ведет надзор за оборотом оружия <strong>только в военное положение</strong>.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Имущество</td>
-                                <td class="col-desc">Запрещено отдавать/продавать гос. имущество и оружие со склада гражданским.</td>
-                            </tr>
-                            <tr class="group-header green-header"><td colspan="2"><i class="fa-solid fa-gavel"></i> Дисциплина (Гл. XV)</td></tr>
-                            <tr>
-                                <td class="col-article green-theme">Взыскания</td>
-                                <td class="col-desc">Предупреждение ➔ Выговор ➔ Строгий ➔ Понижение ➔ Увольнение с ЧС SANG.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Отработка выговоров</td>
-                                <td class="col-desc"><strong>Выговор:</strong> 4 СО / 1 час КПП / 1 круг по кишке.<br><strong>Строгий:</strong> 8 СО / 2 часа КПП / 2 круга по кишке.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article green-theme">Кто выдает</td>
-                                <td class="col-desc">Генералитет и Командир MP могут выдавать всем. Старший состав — только своему отделу.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- ==================== НОВАЯ ВКЛАДКА: СУД И ПРАВО ==================== -->
-    <div id="tab-court" class="tab-content">
-
-        <div class="signature-badge-purple">
-            <i class="fa-solid fa-scale-balanced"></i>
-            СУДЕБНЫЙ РЕГЛАМЕНТ
-        </div>
-
-        <div class="grid-4col">
-
-            <!-- КОЛОНКА 1: ИЕРАРХИЯ И РОЛИ -->
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title purple-title">
-                        <i class="fa-solid fa-building-columns"></i>
-                        <h2>Иерархия Судов и Роли</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Структура</th><th>Описание и Полномочия</th></tr></thead>
-                        <tbody>
-                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-scale-unbalanced"></i> Инстанции</td></tr>
-                            <tr>
-                                <td class="col-article purple-theme">Окружной суд</td>
-                                <td class="col-desc">Суд первой инстанции. Рассматривает гражданские и уголовные иски, нарушения УК, КоАП, ТК и внутренние уставы.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Апелляционный</td>
-                                <td class="col-desc">Суд второй инстанции. Рассматривает жалобы на решения Окружного суда. Может отменить или изменить вердикт.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Верховный суд</td>
-                                <td class="col-desc">Высшая инстанция. Дела против первых лиц (Губернатор, Министры), конституционные споры и апелляции на Апелляционный суд.</td>
-                            </tr>
-                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-users"></i> Участники процесса</td></tr>
-                            <tr>
-                                <td class="col-article purple-theme">Истец</td>
-                                <td class="col-desc">Лицо или организация, подавшие исковое заявление. Должны доказывать вину ответчика.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Ответчик</td>
-                                <td class="col-desc">Лицо, к которому предъявлен иск. Имеет право на адвоката и защиту.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Гос. Обвинитель</td>
-                                <td class="col-desc">Сотрудник Прокуратуры. Выступает от лица Штата в уголовных делах, запрашивает наказание.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Судебный пристав</td>
-                                <td class="col-desc">Обеспечивает безопасность в зале (обычно USSS). Выполняет прямые приказы судьи по удалению нарушителей.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- КОЛОНКА 2: ПРИНЦИПЫ И ТЕРМИНЫ -->
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title purple-title">
-                        <i class="fa-solid fa-book-bookmark"></i>
-                        <h2>Базовые принципы и Термины</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Понятие</th><th>Значение для Судьи</th></tr></thead>
-                        <tbody>
-                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-balance-scale-right"></i> Основы Правосудия</td></tr>
-                            <tr>
-                                <td class="col-article purple-theme">Презумпция невиновности</td>
-                                <td class="col-desc">Лицо считается невиновным, пока его вина не доказана судом. Любые <strong>неустранимые сомнения</strong> толкуются в пользу обвиняемого.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Бремя доказывания</td>
-                                <td class="col-desc">Обязанность доказывать факты лежит на том, кто их утверждает (на Истце/Прокуроре). Обвиняемый не обязан доказывать свою невиновность.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Недопустимые улики</td>
-                                <td class="col-desc">Любые доказательства, полученные с нарушением Конституции, ПК или прав гражданина (например, обыск без ордера). Суд обязан их отклонить.</td>
-                            </tr>
-                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-scroll"></i> Юридические термины</td></tr>
-                            <tr>
-                                <td class="col-article purple-theme">Судебный прецедент</td>
-                                <td class="col-desc">Вынесенное решение суда по конкретному делу, которое становится обязательным правилом для всех аналогичных дел в будущем.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Отвод Судьи</td>
-                                <td class="col-desc">Отстранение судьи от дела при наличии конфликта интересов (личная неприязнь, родственные связи с истцом/ответчиком).</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Хабеас Корпус</td>
-                                <td class="col-desc">Право задержанного обжаловать законность своего ареста. Суд должен срочно проверить основания для удержания под стражей.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- КОЛОНКА 3: ПОРЯДОК ЗАСЕДАНИЯ -->
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title purple-title">
-                        <i class="fa-solid fa-list-ol"></i>
-                        <h2>Порядок Судебного Заседания</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Стадия</th><th>Алгоритм действий Судьи</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-article purple-theme">1. Открытие</td>
-                                <td class="col-desc">Удар молотком: <em>«Встать, суд идет!»</em> Проверка явки истца, ответчика, свидетелей. Удаление из зала посторонних лиц, нарушающих тишину.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">2. Права и Отводы</td>
-                                <td class="col-desc">Судья разъясняет процессуальные права сторонам. Спрашивает, есть ли у сторон ходатайства или заявления об <strong>отводе судьи</strong>.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">3. Вступительное слово</td>
-                                <td class="col-desc">Слово предоставляется Истцу (или Прокурору) для оглашения сути иска. Затем слово предоставляется Ответчику (или Адвокату).</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">4. Судебное следствие</td>
-                                <td class="col-desc">Главная стадия: допрос истца, затем ответчика. Вызов и допрос свидетелей (перекрестный допрос). Изучение видеоматериалов и документов.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">5. Прения сторон</td>
-                                <td class="col-desc">Финальные речи. Истец и ответчик подводят итоги своих позиций. Новые доказательства на этой стадии приобщать <strong>запрещено</strong>.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">6. Последнее слово</td>
-                                <td class="col-desc">Предоставляется исключительно подсудимому/ответчику. Вопросы к нему на этой стадии не задаются.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">7. Вердикт</td>
-                                <td class="col-desc">Суд удаляется в совещательную комнату (или берет паузу), после чего оглашает приговор. Удар молотком: <em>«Судебное заседание закрыто»</em>.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- КОЛОНКА 4: ОРДЕРА И УВАЖЕНИЕ К СУДУ -->
-            <div class="col">
-                <div class="table-container">
-                    <div class="section-title purple-title">
-                        <i class="fa-solid fa-file-contract"></i>
-                        <h2>Ордера и Правила поведения</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>Документ / Правило</th><th>Назначение и Применение</th></tr></thead>
-                        <tbody>
-                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-stamp"></i> Судебные Ордера (Warrants)</td></tr>
-                            <tr>
-                                <td class="col-article purple-theme">Ордер на Арест<br>(Arrest Warrant)</td>
-                                <td class="col-desc">Выдается судом (или Прокуратурой) на основании улик. Дает право задержать лицо вне зависимости от его текущего статуса.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Ордер на Обыск<br>(Search Warrant)</td>
-                                <td class="col-desc">Разрешение на принудительный обыск частного жилища, офиса или личного закрытого транспорта подозреваемого.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Снятие<br>неприкосновенности</td>
-                                <td class="col-desc">Для задержания высших лиц (Министры, Мэры) суд должен выпустить ордер, временно лишающий их статуса неприкосновенности.</td>
-                            </tr>
-                            <tr class="group-header purple-header"><td colspan="2"><i class="fa-solid fa-gavel"></i> Уважение к суду</td></tr>
-                            <tr>
-                                <td class="col-article purple-theme">Неуважение к суду</td>
-                                <td class="col-desc">Крики, перебивание судьи, отказ подчиняться приказам, оскорбления. Судья вправе выписать <strong>штраф</strong> или приказать приставам <strong>арестовать</strong> нарушителя.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Лжесвидетельство<br>(Perjury)</td>
-                                <td class="col-desc">Умышленная дача ложных показаний в суде. Является строгим уголовным преступлением. Инициируется задержание прямо в зале.</td>
-                            </tr>
-                            <tr>
-                                <td class="col-article purple-theme">Нейтралитет Судьи</td>
-                                <td class="col-desc">Судье <strong>строго запрещено</strong> повышать голос, оскорблять участников или демонстрировать предвзятость. Только холодный рассудок.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="review-content">
+                    <h4>Bonya Balabonya</h4>
+                    <span>★ ★ ★ ★ ★</span>
+                    <p>«Семья Bonn — это не просто очередная фама на сервере, это по-настоящему сплоченный коллектив и большая игровая семья. Я состою здесь уже долгое время и могу с уверенностью сказать: это одно из самых адекватных комьюнити на всем проекте.»</p>
+                    <p>«Здесь абсолютно нет места токсичности, лишним конфликтам или душному фарму ради фарма. Руководство всегда на связи, всегда идет навстречу и с огромным терпением помогает освоиться новичкам, объясняя все нюансы механик и правил. Мы нашли идеальный баланс: мы стабильно и активно участвуем во всех серверных мероприятиях, забираем свое, но при этом никогда не забываем про качественный и атмосферный РП-процесс, который приносит настоящие эмоции от игры.»</p>
+                    <p>«Ребята всегда готовы прийти на помощь, вытащить из передряги или просто душевно пообщаться вечером в дискорде. Если вы ищете место, где ценят абсолютно каждого участника, где ваш голос имеет вес, и где по-настоящему приятно проводить время, развивая своего персонажа в отличной компании — вам однозначно к нам!»</p>
                 </div>
             </div>
 
@@ -1116,12 +1304,28 @@
 
 </div>
 
-<!-- СКРИПТ ДЛЯ ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК -->
 <script>
-    function openTab(event, tabName) {
+    function openMainTab(event, pageId) {
+        var i, mainContent, mainLinks;
+
+        mainContent = document.getElementsByClassName("main-content");
+        for (i = 0; i < mainContent.length; i++) {
+            mainContent[i].classList.remove("active");
+        }
+
+        mainLinks = document.getElementsByClassName("main-btn");
+        for (i = 0; i < mainLinks.length; i++) {
+            mainLinks[i].classList.remove("active");
+        }
+
+        document.getElementById(pageId).classList.add("active");
+        event.currentTarget.classList.add("active");
+    }
+
+    function openSubTab(event, tabName) {
         var i, tabcontent, tablinks;
 
-        tabcontent = document.getElementsByClassName("tab-content");
+        tabcontent = document.getElementsByClassName("sub-tab-content");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].classList.remove("active");
         }
