@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ШПАРГАЛКИ СЕМЬИ BONN | MODERN UI</title>
+    <title>САЙТ СЕМЬИ BONN | MODERN UI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -365,13 +365,14 @@
             position: relative;
         }
 
+        /* Переменная для изменения цвета свечения под каждым персонажем */
         .review-image-wrapper::before {
             content: '';
             position: absolute;
             bottom: 0;
             width: 250px;
             height: 250px;
-            background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, var(--glow-color, rgba(168, 85, 247, 0.15)) 0%, transparent 70%);
             border-radius: 50%;
             z-index: 1;
         }
@@ -1282,10 +1283,9 @@
     <div id="page-reviews" class="main-content">
         <div class="simple-content-box">
 
-            <!-- ИДЕАЛЬНЫЙ СКРУГЛЕННЫЙ БЛОК ОТЗЫВА -->
+            <!-- ОТЗЫВ 1: BONYA BALABONYA -->
             <div class="review-layout">
                 <div class="review-image-wrapper">
-                    <!-- Замени 'bonya.png' на свою картинку БЕЗ ФОНА -->
                     <img src="bonya.png" alt="Лидер семьи" class="review-avatar-full">
                 </div>
                 <div class="review-content">
@@ -1294,6 +1294,25 @@
                     <p>«Когда я только создавала нашу семью, моей главной целью было собрать уютный, адекватный и дружный коллектив, где каждый будет чувствовать себя как дома. И сейчас, глядя на наших ребят, я с огромной гордостью могу сказать — у нас всё получилось!»</p>
                     <p>«Я безумно ценю каждого человека в нашем составе. Мы вместе растем, развиваемся, забираем серверные МП и показываем действительно красивый РП-отыгрыш. Для меня, как для лидера, критически важно, чтобы внутри фамы не было места токсичности, а любой новичок всегда мог рассчитывать на мою помощь и поддержку.»</p>
                     <p>«Этот сайт и наша база знаний — это наш общий вклад в то, чтобы сделать игру максимально комфортной и приятной. Двери нашей семьи всегда открыты для целеустремленных, активных и позитивных ребят. Присоединяйтесь к Bonn, будем писать историю сервера вместе! 🩷»</p>
+                </div>
+            </div>
+
+            <!-- ОТЗЫВ 2: NYX SWAROWSKI -->
+            <div class="review-layout">
+                <div class="review-image-wrapper" style="--glow-color: rgba(59, 130, 246, 0.15);">
+                    <style>
+                        .review-image-wrapper[style*="--glow-color"]::before {
+                            background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
+                        }
+                    </style>
+                    <img src="nyx.png" alt="Nyx Swarowski" class="review-avatar-full">
+                </div>
+                <div class="review-content">
+                    <h4>Nyx Swarowski</h4>
+                    <span>★ ★ ★ ★ ★</span>
+                    <p>«Семья Bonn — это просто лютая имба! Бывал в разных фамах на проекте, но такой ламповой атмосферы и такого актива не встречал нигде. Никакой лишней душноты, токсиков сразу отсеивают, а руководство реально занимается составом и вкладывается в развитие.»</p>
+                    <p>«Все друг за друга горой: на любой кипиш залетаем вместе, лут делим по-честному, МПшки забираем на раз-два. Если ищете место, где можно жестко потулить, а потом спокойно и душевно посидеть в дискорде — вам однозначно сюда.»</p>
+                    <p>«Топовый коллектив, топовый вайб. Ни разу не пожалел, что залетел к ребятам. Bonn — это знак качества!»</p>
                 </div>
             </div>
 
